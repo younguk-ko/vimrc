@@ -222,7 +222,7 @@ nmap ,h :%!xxd                  " hexa editor 열기.
 let PRJ_NAME="MyProject"    "   Project name
 let MOD_NAME="android"      "   Module name
 let DEFINE="feature"        "   Feature name
-nmap \q :set paste<CR>O- Cosmos<CR><CR>- Snapshot & image<CR><CR>- Smoke test result<CR><CR>- 2022 Soundbar guide<CR>http://wiki.vd.sec.samsung.net/x/Xv9jBg<CR>:set nopaste<CR>
+
 nmap \w :set paste<CR>I///******************************************************************************<CR>//* Project : <C-R>=(PRJ_NAME)<CR> //* Block / Module : <C-R>=(MOD_NAME)<CR><CR>//* Filename :<CR>//* Date : <C-R>=strftime("%Y/%m/%d")<CR><CR>//* Description : YUKO Create for <C-R>=(PRJ_NAME)<CR> <C-R>=(MOD_NAME)<CR><CR>//*******************************************************************************<CR>:set nopaste 4-0f:0A<CR>
 nmap \z oBP_DEBUG(M_DMS, "[<C-R>=(PRJ_NAME)<CR>_<C-R>=(MOD_NAME)<CR>]%s:%d \n",__FUNCTION__,__LINE__);/*<C-R>=(PRJ_NAME)<CR> <C-R>=strftime("%Y%m%d.YUKO")<CR>*/:set nopaste<CR>48hi
 nmap \x oprintf("[<C-R>=(PRJ_NAME)<CR> <C-R>=(MOD_NAME)<CR>]%s:%d \n",__FUNCTION__,__LINE__);/*<C-R>=strftime("%Y%m%d.YUKO")<CR>*/:set nopaste<CR>52hi
