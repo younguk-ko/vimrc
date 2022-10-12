@@ -244,13 +244,6 @@ nmap \9 :%s/nothing provides //g<CR>:%s/pkgconfig(//g<CR>:%s/)//g<CR>:g/^	/norm 
 map \fn o<C-R>=expand("%:p:h")<CR>/<C-R>=expand("%:t")<CR>
 map \fp o<C-R>=expand("#:p:h")<CR>/<C-R>=expand("#:t")<CR>
 
-" For NERD_tree Plung in 맵과 설정관련내용.
-map <c-w><c-y> :NERDTreeToggle<CR>
-nmap bm :Bookmark 
-nmap bmc :ClearBookmarks 
-let NERDTreeDirArrows=0
-let NERDTreeShowBookmarks=1
-let NERDTreeShowHidden=1
 
 "//==================================================================
 "  개발환경 관련 설정.
@@ -268,9 +261,9 @@ autocmd FileType python nmap <buffer> <F5> :!python %<CR>
 "
 " set pythonthreedll="$HOME\miniconda3\envs\yuko\python38.dll"
 
-
 "//==================================================================
 " Plung in 관리자 : VIM Plug 사용.
+" Plung in 사용에 필요한 set / map/설정 / 사용법 등도 아래에 정리.
 "//==================================================================
 " Plugin 설정. install 명령어. :PlugIn
 " 아래 편집/저장후 
@@ -289,15 +282,27 @@ call plug#begin()
 	Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-theme'
+    Plug 'tpope/vim-fugitive' " For Git commit / push
 call plug#end()
+
+" For NERD_tree Plungin 맵과 설정
+map <c-w><c-y> :NERDTreeToggle<CR>
+nmap bm :Bookmark 
+nmap bmc :ClearBookmarks 
+let NERDTreeDirArrows=0
+let NERDTreeShowBookmarks=1
+let NERDTreeShowHidden=1
+
+" For Fusitive.vim : Git plugin. :      " https://github.com/tpope/vim-fugitive
+" :Git (or just :G)     " :G commit     " :G push(GPush)    " :G status     " :G diff   " :G blame
+" :G commit -m "update" " :G log
 
 
 "//==================================================================
 " 참고할 사항 정리 - Tip , 특수문자 , 강좌 등등 
 "//==================================================================
-"
-" -- vim 정규 표현식 치환할때 참고용. :%s/old/new/g
-"  http://vimregex.com/  : vim 정규 표현식. search / Global command
+"   vim 정규 표현식 치환할때 참고용. :%s/old/new/g
+"   http://vimregex.com/  : vim 정규 표현식. search / Global command
 "   ^ 행의 첫문자 ([] 안에서는 not 의 의미)
 "   . 아무문자나 한문자
 "   [] 괄호 안의 문자 중 하나
@@ -309,5 +314,16 @@ call plug#end()
 "   \| or 의 의미
 "   \{min,max\} min 이상 max 이하 반복됨
 "   \t 탭문자
-
-
+"//==================================================================
+"   vim keys              "<leader > 는 기본적으로 ‘\’를 가리키게 됩니다
+"   <BS>	Backspace   " <Tab>	Tab         " <CR>	Enter
+"   <Enter>	Enter       " <Return>	Enter   " <Esc>	Escape
+"   <Space>	Space       " <Up>	Up arrow    " <Down>	Down arrow
+"   <Left>	Left        " <Right>	Right   " <F1> - <F12>	Function keys 1 to 12
+"   #1, #2..#9,#0	Function keys F1 to F9, F10
+"   <Insert>	Insert      " <Del>	Delete      " <Home>	Home
+"   <End>	End             " <PageUp>	Page-Up " <PageDown>	Page-Down
+"//==================================================================
+"   nmap	normal mode             "   imap	insert mode maps    " vmap	visual and select mode 
+"   smap	select mode maps        "   xmap	visual mode maps
+"   cmap	command-line mode maps  "   omap	operator pending mode maps
