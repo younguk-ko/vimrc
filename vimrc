@@ -22,15 +22,16 @@ au BufNewFile,BufRead *.ino,*.txt set filetype=sh " ino , txt 파일도 C 파일
 " Python 파일(*.py) 일 경우에 자동으로 expandtab 옵션이 설정됨.
 " expandtab : tab이 자동으로  space로 변경됨.
 " 개인적으로 space가 아닌 tab을 사용하려면 아래와 같이 추가 해주어야 한다.
-autocmd FileType python setlocal noexpandtab shiftwidth=4 softtabstop=4
-" python-mode 사용하는 경우 위와 같이 설정하여도 다시 space로 변경됨.
+" autocmd FileType python setlocal noexpandtab shiftwidth=4 softtabstop=4
+" python-mode plugin 사용하는 경우 위와 같이 설정하여도 다시 space로 변경됨.
+" 결론 : python 의 경우 space 사용하는 것이 표준인듯.
 " 짧은 명령어  au Filetype python setl et ts=4 sw=4
-"autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4
+" autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4
 " 파이썬 관련 세팅 모음 끝
 
 "set autoindent
 set smartindent " autoindent smart 하게 한다.
-"set expandtab " 짧게 하려면 set et
+set expandtab " 짧게 하려면 set et
 "set noexpandtab " 짧게 하려면 set noet
 set tabstop=4  " 짧은 command  : set ts=4
 set shiftwidth=4
@@ -106,9 +107,11 @@ if has ("win32") ""윈도우 gvim 과 위도우 CMD ( anaconda venv) 에서 vim 
 	else " Only Windows CMD prompt feature here.
 	
 	endif "if has("gui_running" ) " 
+
 endif "if has("win32")
 
 if has ("unix") "" Linux 설정.
+
 	set nobackup
 	set backupdir=$HOME/.vim/backup
 	set directory=$HOME/.vim/backup
@@ -122,7 +125,6 @@ if has ("unix") "" Linux 설정.
 	nmap ,w :w $HOME/text/datetime_.txt<left><left><left><left>
 	nmap ,t :e ~/text/<CR>
 	nmap ,l :e ~/.vim/mydoc/text/1clip<CR>
-	
 	" YUKO for using taglist 061122
 	filetype on 
 	nnoremap <silent> <F8> :TlistToggle<CR>
@@ -135,6 +137,7 @@ if has ("unix") "" Linux 설정.
 	Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 	call plug#end()
 	" vim plug 관련 end
+
 endif
 
 
@@ -319,11 +322,11 @@ let NERDTreeShowHidden=1
 "   <BS>	Backspace   " <Tab>	Tab         " <CR>	Enter
 "   <Enter>	Enter       " <Return>	Enter   " <Esc>	Escape
 "   <Space>	Space       " <Up>	Up arrow    " <Down>	Down arrow
-"   <Left>	Left        " <Right>	Right   " <F1> - <F12>	Function keys 1 to 12
-"   #1, #2..#9,#0	Function keys F1 to F9, F10
-"   <Insert>	Insert      " <Del>	Delete      " <Home>	Home
-"   <End>	End             " <PageUp>	Page-Up " <PageDown>	Page-Down
+"   <Left>	Left        " <Right>	Right   "   <Insert>	Insert      
+"   <Del>	Delete      " <Home>	Home
+"   <End>	End         " <PageUp>	Page-Up " <PageDown>	Page-Down
+" <F1> - <F12>	Function keys 1 to 12 "   #1, #2..#9,#0	Function keys F1 to F9, F10
 "//==================================================================
-"   nmap	normal mode             "   imap	insert mode maps    " vmap	visual and select mode 
-"   smap	select mode maps        "   xmap	visual mode maps
-"   cmap	command-line mode maps  "   omap	operator pending mode maps
+"   nmap	normal mode         "   imap	insert mode         " vmap	visual and select mode 
+"   smap	select mode         "   xmap	visual mode
+"   cmap	command-line mode   "   omap	operator pending mode 
