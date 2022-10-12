@@ -263,10 +263,10 @@ autocmd FileType python nmap <buffer> <F5> :!python %<CR>
 "autocmd FileType python imap <buffer> <F5> <esc>:w<CR>:exec '!python' shellescape(@%, 1)<CR>
 "autocmd FileType python map <buffer> <F5> :w<CR>:!python %<CR>
 "autocmd FileType python imap <buffer> <F5> <esc>:w<CR>:!python %<CR>
-"set PYTHONPATH=C:\Users\young\miniconda3\envs\yuko
-"set PYTHONHOME=C:\Users\young\miniconda3\envs\yuko
+"set PYTHONPATH=$HOME\miniconda3\envs\yuko
+"set PYTHONHOME=$HOME\miniconda3\envs\yuko
 "
-" set pythonthreedll="C:\Users\young\miniconda3\envs\yuko\python38.dll"
+" set pythonthreedll="$HOME\miniconda3\envs\yuko\python38.dll"
 
 
 "//==================================================================
