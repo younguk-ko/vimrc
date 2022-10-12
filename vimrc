@@ -1,7 +1,7 @@
 "//==================================================================
-" History 
-" 2022-10-07 00:12:41 vimrc 설정 정리
-" 20221012 : git repo : https://github.com/younguk-ko/vimrc.git
+"   History 
+"   2022-10-07 00:12:41 vimrc 설정 정리
+"   20221012 : git repo : https://github.com/younguk-ko/vimrc.git
 "//==================================================================
 
 
@@ -88,8 +88,8 @@ set completeopt=menuone,preview "insert 모드에서 자동완성 추가 옵션"
 "
 
 "//==================================================================
-"  vim 설정 중 OS 별 구분 필요할 경우 아래 if 문 안에 추가
-"  win32 : 윈도우 , gui_running : gvim,  unix : linux
+"   vim 설정 중 OS 별 구분 필요할 경우 아래 if 문 안에 추가
+"   win32 : 윈도우 , gui_running : gvim,  unix : linux
 "//==================================================================
 if has ("win32") ""윈도우 gvim 과 위도우 CMD ( anaconda venv) 에서 vim 사용하는 경우.
 	if has( "gui_running" ) "gvim에서만 적용되는 옵션모음.
@@ -142,9 +142,10 @@ endif
 
 
 "//==================================================================
-"  맵. nmap, map, imap,cmap, nore(no recursive) ,... 
+"   맵. nmap, map, imap,cmap, nore(no recursive) ,... 
 "//==================================================================
-" 탭 추가/이동 관련 맵핑
+
+"   탭 추가/이동 관련 맵핑
 nmap tn :tabnew<CR>
 nmap td :tabclose<CR>
 nmap th :tabprevious<CR>
@@ -186,34 +187,34 @@ iab idate <C-R>=strftime("%Y-%m-%d %H:%M:%S")<CR>
 iab itime <C-R>=strftime("%H:%M:%S")<CR> 
 inoremap <C-G> <C-R>=strftime("%Y/%m/%d %T")<CR> " input mode에서 CTRL-g 로 날짜시간축약입력.
 
-" global command. 키워드 검색하여 키워드가 있는 라인을 여러가지 처리하는 명령모음.
-" Tip 항목의 vim 정규표현식 참고하여 활용가능함.
-"  http://vimregex.com/  : vim 정규 표현식. search / Global command
-"2014-10-27 14:40:24  YUKO for using g(global command)
-"Delete all lines that do?not?match a pattern. The commands shown are equivalent (v?is "inverse").  ":g!/pattern/d ":v/pattern/d
-"Delete all blank lines ("^\" is start of line;?\s*?is zero or more whitespace characters;?$?is end of line) ":g/^\s*$/d
-"Double space the file (^?is start of line which matches each line).  ":g/^/pu =\"\n\"
-"" Alternative (:put inserts nothing from the blackhole register) ":g/^/pu _
-"Copy all lines matching a pattern to end of file.  ":g/pattern/t$
-"Move all lines matching a pattern to end of file.  ":g/pattern/m$
-"Copy all lines matching a pattern to register 'a'.  "qaq:g/pattern/y A
+"   global command. 키워드 검색하여 키워드가 있는 라인을 여러가지 처리하는 명령모음.
+"   Tip 항목의 vim 정규표현식 참고하여 활용가능함.
+"   http://vimregex.com/  : vim 정규 표현식. search / Global command
+"   2014-10-27 14:40:24  YUKO for using g(global command)
+"   Delete all lines that do?not?match a pattern. The commands shown are equivalent (v?is "inverse").  ":g!/pattern/d ":v/pattern/d
+"   Delete all blank lines ("^\" is start of line;?\s*?is zero or more whitespace characters;?$?is end of line) ":g/^\s*$/d
+"   Double space the file (^?is start of line which matches each line).  ":g/^/pu =\"\n\"
+"   " Alternative (:put inserts nothing from the blackhole register) ":g/^/pu _
+"   Copy all lines matching a pattern to end of file.  ":g/pattern/t$
+"   Move all lines matching a pattern to end of file.  ":g/pattern/m$
+"   Copy all lines matching a pattern to register 'a'.  "qaq:g/pattern/y A
 
-"Delete all line contain under cursor string in this file
+"   Delete all line contain under cursor string in this file
 nmap ,gg :g/<C-R>=expand("<cword>")<CR>/d<CR>ggn
-"Copy all line contain under cursor string in this file
+"   Copy all line contain under cursor string in this file
 nmap ,gc qaq:g/<C-R>=expand("<cword>")<CR>/y A<CR>''n
-"Copy all line contain under cursor string in this file and view in new tab
+"   Copy all line contain under cursor string in this file and view in new tab
 nmap ,gt qaq:g/<C-R>=expand("<cword>")<CR>/y A<CR>''n :tabnew<CR>pp
-"Delete all line not contain under cursor string in this file
+"   Delete all line not contain under cursor string in this file
 nmap ,gv :v/<C-R>=expand("<cword>")<CR>/d<CR>ggn
-"Delete all empty line in this file
+"   Delete all empty line in this file
 nmap ,ge :g/^\s*$/d<CR>gg 
 
 
 nmap diff :vert diffs "diff 는 virtial split.
 nmap ,h :%!xxd " hexa editor 열기.
 
-" For some project.  Comment add , debug log input in C file. etc....
+"   For some project.  Comment add , debug log input in C file. etc....
 let PRJ_NAME="MyProject"
 let MOD_NAME="android"
 let DEFINE=""
@@ -233,52 +234,51 @@ nmap \6 :set paste<CR>I/*A*/ /* 1 line comment <C-R>=strftime("%Y%m%d.YUKO")<CR>
 nmap -- :set paste<CR>o//===========================================================================================:set nopaste<CR>k
 nmap \9 :%s/nothing provides //g<CR>:%s/pkgconfig(//g<CR>:%s/)//g<CR>:g/^	/norm dwk^yiWopJk<CR>:set nopaste<CR>
 
-" 2014-02-17 Current file name mapping. 현재 파일의 정보를 디렉토리 / string으로 만들기.
-"when you are in insert mode.
-":inoremap \fn <C-R>=expand("%:t:r")<CR>
-"To keep the extension use:
-":inoremap \fn <C-R>=expand("%:t")<CR>
-"To insert the absolute path of the directory the file is in use:
-":inoremap \fn <C-R>=expand("%:p:h")<CR>
-"To insert the relative path of the directory the file is in use:
-":inoremap \fn <C-R>=expand("%:h")<CR>
-"inoremap ifilen <C-R>=expand("%:p:h")<CR>/<C-R>=expand("%:t")<CR>
-"inoremap ifilep <C-R>=expand("#:p:h")<CR>/<C-R>=expand("#:t")<CR>
+"   2014-02-17 Current file name mapping. 현재 파일의 정보를 디렉토리 / string으로 만들기.
+"   when you are in insert mode.
+"   :inoremap \fn <C-R>=expand("%:t:r")<CR>
+"   To keep the extension use:
+"   :inoremap \fn <C-R>=expand("%:t")<CR>
+"   To insert the absolute path of the directory the file is in use:
+"   :inoremap \fn <C-R>=expand("%:p:h")<CR>
+"   To insert the relative path of the directory the file is in use:
+"   :inoremap \fn <C-R>=expand("%:h")<CR>
+"   inoremap ifilen <C-R>=expand("%:p:h")<CR>/<C-R>=expand("%:t")<CR>
+"   inoremap ifilep <C-R>=expand("#:p:h")<CR>/<C-R>=expand("#:t")<CR>
 map \fn o<C-R>=expand("%:p:h")<CR>/<C-R>=expand("%:t")<CR>
 map \fp o<C-R>=expand("#:p:h")<CR>/<C-R>=expand("#:t")<CR>
 
 
 "//==================================================================
-"  개발환경 관련 설정.
+"   개발환경 관련 설정.
 "//==================================================================
-" window 10  Anaconda 에서 python compile 할때 <F5> 키로 실행.
-" For Python anaconda virtual environment compile
-autocmd FileType python nmap <buffer> <F5> :!python %<CR>  
-"autocmd FileType python map <buffer> <F5> :w<CR> :!python %<CR>  
-"autocmd FileType python map <buffer> <F5> :w<CR>:exec '!python' shellescape(@%, 1)<CR>
-"autocmd FileType python imap <buffer> <F5> <esc>:w<CR>:exec '!python' shellescape(@%, 1)<CR>
-"autocmd FileType python map <buffer> <F5> :w<CR>:!python %<CR>
-"autocmd FileType python imap <buffer> <F5> <esc>:w<CR>:!python %<CR>
-"set PYTHONPATH=$HOME\miniconda3\envs\yuko
-"set PYTHONHOME=$HOME\miniconda3\envs\yuko
-"
-" set pythonthreedll="$HOME\miniconda3\envs\yuko\python38.dll"
+"   window 10  Anaconda 에서 python compile 할때 <F5> 키로 실행.
+"   For Python anaconda virtual environment compile
+    autocmd FileType python nmap <buffer> <F5> :!python %<CR>  " 
+"   autocmd FileType python map <buffer> <F5> :w<CR> :!python %<CR>  
+"   autocmd FileType python map <buffer> <F5> :w<CR>:exec '!python' shellescape(@%, 1)<CR>
+"   autocmd FileType python imap <buffer> <F5> <esc>:w<CR>:exec '!python' shellescape(@%, 1)<CR>
+"   autocmd FileType python map <buffer> <F5> :w<CR>:!python %<CR>
+"   autocmd FileType python imap <buffer> <F5> <esc>:w<CR>:!python %<CR>
+"   set PYTHONPATH=$HOME\miniconda3\envs\yuko
+"   set PYTHONHOME=$HOME\miniconda3\envs\yuko
+"   set pythonthreedll="$HOME\miniconda3\envs\yuko\python38.dll"
 
 "//==================================================================
-" Plung in 관리자 : VIM Plug 사용.
-" Plung in 사용에 필요한 set / map/설정 / 사용법 등도 아래에 정리.
+"   Plung in 관리자 : VIM Plug 사용.
+"   Plung in 사용에 필요한 set / map/설정 / 사용법 등도 아래에 정리.
 "//==================================================================
-" Plugin 설정. install 명령어. :PlugIn
-" 아래 편집/저장후 
-" TODO 반드시 source $HOME/vimfiles/vimrc 실행 후 명령어 입력. 
-"Command	Description
-"PlugInstall [name ...] [#threads]	Install plugins
-"PlugUpdate [name ...] [#threads]	Install or update plugins
-"PlugClean[!]	Remove unlisted plugins (bang version will clean without prompt)
-"PlugUpgrade	Upgrade vim-plug itself
-"PlugStatus	Check the status of plugins
-"PlugDiff	Examine changes from the previous update and the pending changes
-"PlugSnapshot[!] [output path]	Generate script for restoring the current snapshot of the plugins
+"   Plugin 설정. install 명령어. :PlugIn
+"   아래 편집/저장후 
+"   TODO 반드시 source $HOME/vimfiles/vimrc 실행 후 명령어 입력. 
+"   Command	Description
+"   PlugInstall [name ...] [#threads]	Install plugins
+"   PlugUpdate [name ...] [#threads]	Install or update plugins
+"   PlugClean[!]	Remove unlisted plugins (bang version will clean without prompt)
+"   PlugUpgrade	Upgrade vim-plug itself
+"   PlugStatus	Check the status of plugins
+"   PlugDiff	Examine changes from the previous update and the pending changes
+"   PlugSnapshot[!] [output path]	Generate script for restoring the current snapshot of the plugins
 "//==================================================================
 call plug#begin()
 	Plug 'preservim/nerdtree'
@@ -288,7 +288,7 @@ call plug#begin()
     Plug 'tpope/vim-fugitive' " For Git commit / push
 call plug#end()
 
-" For NERD_tree Plungin 맵과 설정
+"   For NERD_tree Plungin 맵과 설정
 map <c-w><c-y> :NERDTreeToggle<CR>
 nmap bm :Bookmark 
 nmap bmc :ClearBookmarks 
@@ -296,27 +296,22 @@ let NERDTreeDirArrows=0
 let NERDTreeShowBookmarks=1
 let NERDTreeShowHidden=1
 
-" For Fusitive.vim : Git plugin. :      " https://github.com/tpope/vim-fugitive
-" :Git (or just :G)     " :G commit     " :G push(GPush)    " :G status     " :G diff   " :G blame
-" :G commit -m "update" " :G log
+"   For Fusitive.vim : Git plugin. :      " https://github.com/tpope/vim-fugitive
+"   :Git (or just :G)     " :G commit     " :G push(GPush)    " :G status     " :G diff   " :G blame
+"   :G commit -m "update" " :G log
 
 
 "//==================================================================
-" 참고할 사항 정리 - Tip , 특수문자 , 강좌 등등 
+"   참고할 사항 정리 - Tip , 특수문자 , 강좌 등등 
 "//==================================================================
 "   vim 정규 표현식 치환할때 참고용. :%s/old/new/g
 "   http://vimregex.com/  : vim 정규 표현식. search / Global command
-"   ^ 행의 첫문자 ([] 안에서는 not 의 의미)
-"   . 아무문자나 한문자
-"   [] 괄호 안의 문자 중 하나
-"   * 앞의 내용이 0번 이상 반복됨
-"   \< 단어의 시작
-"   \> 단어의 끝
-"   \n 새 행문자
-"   $ 행의 끝
-"   \| or 의 의미
-"   \{min,max\} min 이상 max 이하 반복됨
-"   \t 탭문자
+"   ^   행의 첫문자 ([] 안에서는 not 의 의미)        "   .      아무문자나 한문자
+"   []  괄호 안의 문자 중 하나                       "   *      앞의 내용이 0번 이상 반복됨
+"   \<  단어의 시작                                  "   \>     단어의 끝
+"   \n  새 행문자                                    "   $      행의 끝
+"   \|  or 의 의미                                   "   \{min,max\}    min 이상 max 이하 반복됨
+"   \t  탭문자
 "//==================================================================
 "   vim keys              "<leader > 는 기본적으로 ‘\’를 가리키게 됩니다
 "   <BS>	Backspace   " <Tab>	Tab         " <CR>	Enter
@@ -325,7 +320,7 @@ let NERDTreeShowHidden=1
 "   <Left>	Left        " <Right>	Right   "   <Insert>	Insert      
 "   <Del>	Delete      " <Home>	Home
 "   <End>	End         " <PageUp>	Page-Up " <PageDown>	Page-Down
-" <F1> - <F12>	Function keys 1 to 12 "   #1, #2..#9,#0	Function keys F1 to F9, F10
+"   <F1> - <F12>	Function keys 1 to 12 "   #1, #2..#9,#0	Function keys F1 to F9, F10
 "//==================================================================
 "   nmap	normal mode         "   imap	insert mode         " vmap	visual and select mode 
 "   smap	select mode         "   xmap	visual mode
