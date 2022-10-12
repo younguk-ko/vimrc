@@ -132,13 +132,7 @@ if has ("unix") "" Linux 설정.
 	
 	" vim plug 관련 start
 	call plug#begin('~/.vim/plugged')
-	Plug 'fatih/vim-go'
 	Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-	Plug 'shougo/vimshell.vim'
-	Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-	Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-	Plug 'hynek/vim-python-pep8-indent'   " python 자동 들여쓰기 Plugin
-	filetype plugin indent on               " python 자동 들여쓰기 on
 	call plug#end()
 	" vim plug 관련 end
 endif
