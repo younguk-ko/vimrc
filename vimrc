@@ -92,6 +92,12 @@ set completeopt=menuone,preview "insert 모드에서 자동완성 추가 옵션"
 "   win32 : 윈도우 , gui_running : gvim,  unix : linux
 "//==================================================================
 if has ("win32") ""윈도우 gvim 과 위도우 CMD ( anaconda venv) 에서 vim 사용하는 경우.
+
+    "   Open URL under cursor in webbrowser.
+    if (has('win32') || has('win64'))
+        nmap gx :exec "!start <cWORD>"<cr> 
+    endif
+
 	if has( "gui_running" ) "gvim에서만 적용되는 옵션모음.
 	
 		set gfn=D2Coding:h11 " 폰트 크기 설정
@@ -102,8 +108,8 @@ if has ("win32") ""윈도우 gvim 과 위도우 CMD ( anaconda venv) 에서 vim 
 		set guioptions-=T " Remove toolbar. 보이게 할 경우 +=T
 		set nobackup
 		set backupdir=$HOME/vimfiles/backup
-		set directory=$HOME/vimfiles/backup
-	
+        set directory=$HOME/vimfiles/backup
+
 	else " Only Windows CMD prompt feature here.
 	
 	endif "if has("gui_running" ) " 
@@ -132,6 +138,9 @@ if has ("unix") "" Linux 설정.
 	" 2018-10-02 10:19:54  coding font.
 	set guifont=D2Coding\ 13
 	
+    "   Open URL under cursor in webbrowser for other os.
+    nmap gx :exec "!open <cWORD>"<cr> 
+
 	" vim plug 관련 start
 	call plug#begin('~/.vim/plugged')
 	Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -199,25 +208,20 @@ inoremap <C-G> <C-R>=strftime("%Y/%m/%d %T")<CR> " input mode에서 CTRL-g 로 �
 "   Move all lines matching a pattern to end of file.  ":g/pattern/m$
 "   Copy all lines matching a pattern to register 'a'.  "qaq:g/pattern/y A
 
-"   Delete all line contain under cursor string in this file
-nmap ,gg :g/<C-R>=expand("<cword>")<CR>/d<CR>ggn
-"   Copy all line contain under cursor string in this file
-nmap ,gc qaq:g/<C-R>=expand("<cword>")<CR>/y A<CR>''n
-"   Copy all line contain under cursor string in this file and view in new tab
-nmap ,gt qaq:g/<C-R>=expand("<cword>")<CR>/y A<CR>''n :tabnew<CR>pp
-"   Delete all line not contain under cursor string in this file
-nmap ,gv :v/<C-R>=expand("<cword>")<CR>/d<CR>ggn
-"   Delete all empty line in this file
-nmap ,ge :g/^\s*$/d<CR>gg 
+nmap ,gg :g/<C-R>=expand("<cword>")<CR>/d<CR>ggn            "   Delete all line contain under cursor string in this file
+nmap ,gc qaq:g/<C-R>=expand("<cword>")<CR>/y A<CR>''n       "   Copy all line contain under cursor string in this file
+nmap ,gv :v/<C-R>=expand("<cword>")<CR>/d<CR>ggn            "   Delete all line not contain under cursor string in this file
+nmap ,ge :g/^\s*$/d<CR>gg                                   "   Delete all empty line in this file
+nmap ,gt qaq:g/<C-R>=expand("<cword>")<CR>/y A<CR>''n :tabnew<CR>pp     "   Copy all line contain under cursor string in this file and view in new tab
 
 
-nmap diff :vert diffs "diff 는 virtial split.
-nmap ,h :%!xxd " hexa editor 열기.
+nmap diff :vert diffs           " diff 는 virtial split.
+nmap ,h :%!xxd                  " hexa editor 열기.
 
-"   For some project.  Comment add , debug log input in C file. etc....
-let PRJ_NAME="MyProject"
-let MOD_NAME="android"
-let DEFINE=""
+"   For project.  Comment add , debug log input in C file. etc....
+let PRJ_NAME="MyProject"    "   Project name
+let MOD_NAME="android"      "   Module name
+let DEFINE="feature"        "   Feature name
 nmap \q :set paste<CR>O- Cosmos<CR><CR>- Snapshot & image<CR><CR>- Smoke test result<CR><CR>- 2022 Soundbar guide<CR>http://wiki.vd.sec.samsung.net/x/Xv9jBg<CR>:set nopaste<CR>
 nmap \w :set paste<CR>I///******************************************************************************<CR>//* Project : <C-R>=(PRJ_NAME)<CR> //* Block / Module : <C-R>=(MOD_NAME)<CR><CR>//* Filename :<CR>//* Date : <C-R>=strftime("%Y/%m/%d")<CR><CR>//* Description : YUKO Create for <C-R>=(PRJ_NAME)<CR> <C-R>=(MOD_NAME)<CR><CR>//*******************************************************************************<CR>:set nopaste 4-0f:0A<CR>
 nmap \z oBP_DEBUG(M_DMS, "[<C-R>=(PRJ_NAME)<CR>_<C-R>=(MOD_NAME)<CR>]%s:%d \n",__FUNCTION__,__LINE__);/*<C-R>=(PRJ_NAME)<CR> <C-R>=strftime("%Y%m%d.YUKO")<CR>*/:set nopaste<CR>48hi
@@ -235,14 +239,10 @@ nmap -- :set paste<CR>o//=======================================================
 nmap \9 :%s/nothing provides //g<CR>:%s/pkgconfig(//g<CR>:%s/)//g<CR>:g/^	/norm dwk^yiWopJk<CR>:set nopaste<CR>
 
 "   2014-02-17 Current file name mapping. 현재 파일의 정보를 디렉토리 / string으로 만들기.
-"   when you are in insert mode.
-"   :inoremap \fn <C-R>=expand("%:t:r")<CR>
-"   To keep the extension use:
-"   :inoremap \fn <C-R>=expand("%:t")<CR>
-"   To insert the absolute path of the directory the file is in use:
-"   :inoremap \fn <C-R>=expand("%:p:h")<CR>
-"   To insert the relative path of the directory the file is in use:
-"   :inoremap \fn <C-R>=expand("%:h")<CR>
+"   :inoremap \fn <C-R>=expand("%:t:r")<CR>     "   when you are in insert mode.
+"   :inoremap \fn <C-R>=expand("%:t")<CR>       "   To keep the extension use:
+"   :inoremap \fn <C-R>=expand("%:p:h")<CR>     "   To insert the absolute path of the directory the file is in use:
+"   :inoremap \fn <C-R>=expand("%:h")<CR>       "   To insert the relative path of the directory the file is in use:
 "   inoremap ifilen <C-R>=expand("%:p:h")<CR>/<C-R>=expand("%:t")<CR>
 "   inoremap ifilep <C-R>=expand("#:p:h")<CR>/<C-R>=expand("#:t")<CR>
 map \fn o<C-R>=expand("%:p:h")<CR>/<C-R>=expand("%:t")<CR>
@@ -254,7 +254,7 @@ map \fp o<C-R>=expand("#:p:h")<CR>/<C-R>=expand("#:t")<CR>
 "//==================================================================
 "   window 10  Anaconda 에서 python compile 할때 <F5> 키로 실행.
 "   For Python anaconda virtual environment compile
-    autocmd FileType python nmap <buffer> <F5> :!python %<CR>  " 
+autocmd FileType python nmap <buffer> <F5> :!python %<CR>  " 
 "   autocmd FileType python map <buffer> <F5> :w<CR> :!python %<CR>  
 "   autocmd FileType python map <buffer> <F5> :w<CR>:exec '!python' shellescape(@%, 1)<CR>
 "   autocmd FileType python imap <buffer> <F5> <esc>:w<CR>:exec '!python' shellescape(@%, 1)<CR>
@@ -266,11 +266,11 @@ map \fp o<C-R>=expand("#:p:h")<CR>/<C-R>=expand("#:t")<CR>
 
 "//==================================================================
 "   Plung in 관리자 : VIM Plug 사용.
-"   Plung in 사용에 필요한 set / map/설정 / 사용법 등도 아래에 정리.
+"   Plung in 사용에 필요한 set / map /  설정 / 사용법 등도 아래에 정리.
 "//==================================================================
 "   Plugin 설정. install 명령어. :PlugIn
 "   아래 편집/저장후 
-"   TODO 반드시 source $HOME/vimfiles/vimrc 실행 후 명령어 입력. 
+"   TODO 반드시 source $HOME/vimfiles/vimrc 실행 후 명령어 입력. XXX , NOTE
 "   Command	Description
 "   PlugInstall [name ...] [#threads]	Install plugins
 "   PlugUpdate [name ...] [#threads]	Install or update plugins
@@ -313,7 +313,7 @@ let NERDTreeShowHidden=1
 "   \|  or 의 의미                                   "   \{min,max\}    min 이상 max 이하 반복됨
 "   \t  탭문자
 "//==================================================================
-"   vim keys              "<leader > 는 기본적으로 ‘\’를 가리키게 됩니다
+"   vim keys              "<leader> 는 기본적으로 ‘\’를 가리키게 됩니다
 "   <BS>	Backspace   " <Tab>	Tab         " <CR>	Enter
 "   <Enter>	Enter       " <Return>	Enter   " <Esc>	Escape
 "   <Space>	Space       " <Up>	Up arrow    " <Down>	Down arrow
@@ -325,3 +325,8 @@ let NERDTreeShowHidden=1
 "   nmap	normal mode         "   imap	insert mode         " vmap	visual and select mode 
 "   smap	select mode         "   xmap	visual mode
 "   cmap	command-line mode   "   omap	operator pending mode 
+
+"//==================================================================
+"   쓸만한 VIM 강좌 URL 모음.           "   아래 주소 위에 커서 놓고 gx 입력하면 웹보기.
+"   https://m.blog.naver.com/nfwscho/220394602746 : 밤앙개의 vim 강좌
+
