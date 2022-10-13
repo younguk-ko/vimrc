@@ -265,12 +265,11 @@ autocmd FileType python nmap <buffer> <F5> :!python %<CR>  "
 "   set pythonthreedll="$HOME\miniconda3\envs\yuko\python38.dll"
 
 "//==================================================================
-"   Plung in 관리자 : VIM Plug 사용.
+"   Plung in 관리자 : Vim-Plug 사용.
 "   Plung in 사용에 필요한 set / map /  설정 / 사용법 등도 아래에 정리.
 "//-------------------------------------------------------------------
 "   Plugin 설정. install 명령어. :PlugIn
-"   아래 편집/저장후 
-"   TODO 반드시 source $HOME/vimfiles/vimrc 실행 후 명령어 입력. XXX , NOTE
+"   아래 편집/저장후 TODO 반드시 source $HOME/vimfiles/vimrc 실행 후 명령어 입력. XXX
 "   Command	Description
 "   PlugInstall [name ...] [#threads]	Install plugins
 "   PlugUpdate [name ...] [#threads]	Install or update plugins
@@ -280,10 +279,7 @@ autocmd FileType python nmap <buffer> <F5> :!python %<CR>  "
 "   PlugDiff	Examine changes from the previous update and the pending changes
 "   PlugSnapshot[!] [output path]	Generate script for restoring the current snapshot of the plugins
 "//-------------------------------------------------------------------
-"   Vim Plug download. Type below command on windows powershell.
-"   iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
-"       ni $HOME/vimfiles/autoload/plug.vim -Force
-"//==================================================================
+
 call plug#begin()
 	Plug 'preservim/nerdtree'
 	Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
@@ -333,4 +329,18 @@ let NERDTreeShowHidden=1
 "//==================================================================
 "   쓸만한 VIM 강좌 URL 모음.           "   아래 주소 위에 커서 놓고 gx 입력하면 웹보기.
 "   https://m.blog.naver.com/nfwscho/220394602746 : 밤앙개의 vim 강좌
+
+
+"//------------------------------------------------------------------
+"    Vim 설치 / Plugin 설치 
+
+"//-------------------------------------------------------------------
+"   Vim-Plug 설치 :  Type below command on windows powershell.
+"   iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
+"       ni $HOME/vimfiles/autoload/plug.vim -Force
+"   Vim-Plug 사용하기 위해서는 git 설치 필요.
+"   https://git-scm.com/download : Git 설치 파일.
+
+
+
 
