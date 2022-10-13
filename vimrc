@@ -340,6 +340,8 @@ let NERDTreeShowHidden=1
 "       ni $HOME/vimfiles/autoload/plug.vim -Force
 "   Vim-Plug 사용하기 위해서는 git 설치 필요.
 "   https://git-scm.com/download : Git 설치 파일.
+"   Proxy 환경 일 경우 :PlugInstall  명령시 실패 할 경우 CMD 에 아래 입력.
+"   git config --global http.sslVerify false
 
 
 
