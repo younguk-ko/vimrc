@@ -267,7 +267,7 @@ autocmd FileType python nmap <buffer> <F5> :!python %<CR>  "
 "//==================================================================
 "   Plung in 관리자 : VIM Plug 사용.
 "   Plung in 사용에 필요한 set / map /  설정 / 사용법 등도 아래에 정리.
-"//==================================================================
+"//-------------------------------------------------------------------
 "   Plugin 설정. install 명령어. :PlugIn
 "   아래 편집/저장후 
 "   TODO 반드시 source $HOME/vimfiles/vimrc 실행 후 명령어 입력. XXX , NOTE
@@ -279,6 +279,10 @@ autocmd FileType python nmap <buffer> <F5> :!python %<CR>  "
 "   PlugStatus	Check the status of plugins
 "   PlugDiff	Examine changes from the previous update and the pending changes
 "   PlugSnapshot[!] [output path]	Generate script for restoring the current snapshot of the plugins
+"//-------------------------------------------------------------------
+"   Vim Plug download. Type below command on windows powershell.
+"   iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
+"       ni $HOME/vimfiles/autoload/plug.vim -Force
 "//==================================================================
 call plug#begin()
 	Plug 'preservim/nerdtree'
