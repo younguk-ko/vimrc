@@ -415,5 +415,10 @@ nnoremap <A-5> :G push<CR>
 "   
 "   git fetch
 "   git pull
-"   
+"   git push할때 아래와 같은 에러 일 경우
+"   오류의 원인은 처음 만들고 원격 저장소에 대한 기본 브랜치 설정을 안 해줬기 때문입니다. 
+"   이런 오류는 처음 브랜치 설정만 해주면 간단하게 해결이 가능합니다.
+"   fatal: The current branch master has no upstream branch.
+"   To push the current branch and set the remote as upstream, use
+"    git push --set-upstream origin master
 "
