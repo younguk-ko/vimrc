@@ -308,14 +308,11 @@ let NERDTreeShowHidden=1
 "   For Fusitive.vim : Git plugin. :      " https://github.com/tpope/vim-fugitive
 "   :Git (or just :G)     " :G commit     " :G push(GPush)    " :G status     " :G diff   " :G blame
 "   :G commit -m "update" " :G log
-"   :G status
 nnoremap <A-1> :G status<CR>
 nnoremap <A-2> :G log<CR>
 nnoremap <A-3> :G diff<CR>
-nnoremap <A-4> :G commit vimrc -m "CCCCCCCCCCCCCCC" 
-
-nnoremap <A-5> :G push<CR>
-
+nnoremap <A-4> :G commit vimrc -m "update"<left>
+nnoremap <A-5> :GPush<CR>
 
 "//==================================================================
 "   참고할 사항 정리 - Tip , 특수문자 , 강좌 등등 
