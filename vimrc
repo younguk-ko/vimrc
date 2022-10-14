@@ -312,7 +312,7 @@ nnoremap <A-1> :G status<CR>
 nnoremap <A-2> :G log<CR>
 nnoremap <A-3> :G diff<CR>
 nnoremap <A-4> :G commit vimrc -m "update"<left>
-nnoremap <A-5> :GPush<CR>
+nnoremap <A-5> :G push<CR>
 
 "//==================================================================
 "   참고할 사항 정리 - Tip , 특수문자 , 강좌 등등 
