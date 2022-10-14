@@ -417,7 +417,7 @@ nnoremap <A-6> :G pull<CR>
 "   - 로컬의 파일을 git repository에 add 할 경우
 "           git add .    " 로컬폴더의 내용을 추가한다.
 "           git commit -m 'first commit'    " commit 을 한다.
-"           git push -u origin mastera      " github에 올린다.
+"           git push -u origin main      " github에 올린다.
 "
 "   기본 명령.
 "   git 설치 후 setup.
