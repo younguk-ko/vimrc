@@ -52,10 +52,10 @@ set laststatus=1
 " laststatus 화면 하단에 현재 상태 정보 보여줄 것인지 여부 설정" " 0 - never" 
  " 1 - only if there are at least two windows (화면분할)" " 2 - always"
 set showmatch
-set history=50        " keep 50 lines of command line history
-set showcmd        " 키보드 눌러서 사용하는 명령어 우측 하단에 보여줌.
-set incsearch        " do incremental searching
-set isk+=-        " 2019-10-31 16:13:15  include dash"-" when search word.
+set history=50      " keep 50 lines of command line history
+set showcmd         " 키보드 눌러서 사용하는 명령어 우측 하단에 보여줌.
+set incsearch       " do incremental searching
+set isk+=-          " 2019-10-31 16:13:15  include dash"-" when search word.
 
 " Clipboard feature settings : CTRL-C,CTRL-V . y, p
 set clipboard=unnamedplus " use system clipboard  
@@ -81,10 +81,10 @@ set ch=1        " Make command line three lines high
 " 대소문자 구분없이 검색.
 set ignorecase " 반대는 noignorecase
 set smartcase  " 반대는 nosmartcase " 대소문자 섞어서 검색시에는 대소문자 구분함.
-"set ignorecase smartcase  "/로 검색할 때, 대소문자 구분없이 매칭되는 것을 찾아줌"
-"smartcase는 좀더 스마트하게 검색을 해주는데 예를 들어 the, THE, The, ThE가 "
-"있을 때, /Th*로 검색하면 T와 Th만 찾아준다."
-"ignorecase만 사용하면 the, THE, The, ThE 모두 찾아준다."
+"   set ignorecase smartcase  "/로 검색할 때, 대소문자 구분없이 매칭되는 것을 찾아줌"
+"   smartcase는 좀더 스마트하게 검색을 해주는데 예를 들어 the, THE, The, ThE가 "
+"   있을 때, /Th*로 검색하면 T와 Th만 찾아준다."
+"   ignorecase만 사용하면 the, THE, The, ThE 모두 찾아준다."
 
 
 set wildmenu "자동완성 기능 향상"
@@ -282,9 +282,9 @@ autocmd FileType python nmap <buffer> <F5> :!python %<CR>  "
 "   PlugInstall [name ...] [#threads]    Install plugins
 "   PlugUpdate [name ...] [#threads]    Install or update plugins
 "   PlugClean[!]    Remove unlisted plugins (bang version will clean without prompt)
-"   PlugUpgrade    Upgrade vim-plug itself
-"   PlugStatus    Check the status of plugins
-"   PlugDiff    Examine changes from the previous update and the pending changes
+"   PlugUpgrade     Upgrade vim-plug itself
+"   PlugStatus      Check the status of plugins
+"   PlugDiff        Examine changes from the previous update and the pending changes
 "   PlugSnapshot[!] [output path]    Generate script for restoring the current snapshot of the plugins
 "//-------------------------------------------------------------------
 
@@ -322,12 +322,12 @@ let NERDTreeShowHidden=1
 "   \t  탭문자
 "//==================================================================
 "   vim keys              "<leader> 는 기본적으로 ‘\’를 가리키게 됩니다
-"   <BS>    Backspace   " <Tab>    Tab         " <CR>    Enter
-"   <Enter>    Enter       " <Return>    Enter   " <Esc>    Escape
-"   <Space>    Space       " <Up>    Up arrow    " <Down>    Down arrow
-"   <Left>    Left        " <Right>    Right   "   <Insert>    Insert      
-"   <Del>    Delete      " <Home>    Home
-"   <End>    End         " <PageUp>    Page-Up " <PageDown>    Page-Down
+"   <BS>    Backspace       " <Tab>    Tab      " <CR>    Enter
+"   <Enter>    Enter        " <Return> Enter    " <Esc>    Escape
+"   <Space>    Space        " <Up>     Up arrow " <Down>    Down arrow
+"   <Left>    Left          " <Right>  Right    "   <Insert>    Insert      
+"   <Del>    Delete         " <Home>   Home
+"   <End>    End            " <PageUp> Page-Up  " <PageDown>    Page-Down
 "   <F1> - <F12>    Function keys 1 to 12 "   #1, #2..#9,#0    Function keys F1 to F9, F10
 "//==================================================================
 "   nmap    normal mode         "   imap    insert mode         " vmap    visual and select mode 
