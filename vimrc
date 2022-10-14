@@ -10,7 +10,7 @@
 "  :set 명령어로  현재 setting을 볼수 있다.
 "//==================================================================
 if has("syntax") " 구문 강조 사용.
-	syntax on
+    syntax on
 endif
 
 " 파일 타입(확장자 *.py , *.txt))에 따라 다르게 indent 또는 plugin을 적용하는 옵션.
@@ -18,16 +18,16 @@ filetype plugin indent on
 "au BufNewFile,BufRead *.ino,*.txt set filetype=c " ino , txt 파일도 C 파일과 같은 취급.
 au BufNewFile,BufRead *.ino,*.txt set filetype=sh " ino , txt 파일도 C 파일과 같은 취급.
 
-" 파이썬 관련 세팅 모음 시작.
-" Python 파일(*.py) 일 경우에 자동으로 expandtab 옵션이 설정됨.
-" expandtab : tab이 자동으로  space로 변경됨.
-" 개인적으로 space가 아닌 tab을 사용하려면 아래와 같이 추가 해주어야 한다.
-" autocmd FileType python setlocal noexpandtab shiftwidth=4 softtabstop=4
-" python-mode plugin 사용하는 경우 위와 같이 설정하여도 다시 space로 변경됨.
-" 결론 : python 의 경우 space 사용하는 것이 표준인듯.
-" 짧은 명령어  au Filetype python setl et ts=4 sw=4
-" autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4
-" 파이썬 관련 세팅 모음 끝
+"   파이썬 관련 세팅 모음 시작.
+"   Python 파일(*.py) 일 경우에 자동으로 expandtab 옵션이 설정됨.
+"   expandtab : tab이 자동으로  space로 변경됨.
+"   개인적으로 space가 아닌 tab을 사용하려면 아래와 같이 추가 해주어야 한다.
+"   autocmd FileType python setlocal noexpandtab shiftwidth=4 softtabstop=4
+"   python-mode plugin 사용하는 경우 위와 같이 설정하여도 다시 space로 변경됨.
+"   결론 : python 의 경우 space 사용하는 것이 표준인듯.
+"   짧은 명령어  au Filetype python setl et ts=4 sw=4
+"   autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4
+"   파이썬 관련 세팅 모음 끝
 
 "set autoindent
 set smartindent " autoindent smart 하게 한다.
@@ -42,7 +42,7 @@ set softtabstop=4
 
 set nocompatible " vi와 호환되지 않음.
 "set nu  "set nonu
-set mousehide	" 마우스 숨기기
+set mousehide    " 마우스 숨기기
 set mouse=a " 마우스 스크롤 ON
 set autoread
 set nowrap
@@ -52,10 +52,10 @@ set laststatus=1
 " laststatus 화면 하단에 현재 상태 정보 보여줄 것인지 여부 설정" " 0 - never" 
  " 1 - only if there are at least two windows (화면분할)" " 2 - always"
 set showmatch
-set history=50		" keep 50 lines of command line history
-set showcmd		" 키보드 눌러서 사용하는 명령어 우측 하단에 보여줌.
-set incsearch		" do incremental searching
-set isk+=-		" 2019-10-31 16:13:15  include dash"-" when search word.
+set history=50        " keep 50 lines of command line history
+set showcmd        " 키보드 눌러서 사용하는 명령어 우측 하단에 보여줌.
+set incsearch        " do incremental searching
+set isk+=-        " 2019-10-31 16:13:15  include dash"-" when search word.
 
 " Clipboard feature settings : CTRL-C,CTRL-V . y, p
 set clipboard=unnamedplus " use system clipboard  
@@ -74,7 +74,7 @@ colorscheme desert
 
 set fileencodings=utf8,euc-kr " 한글 설정.
 
-set ch=1		" Make command line three lines high
+set ch=1        " Make command line three lines high
 "set ruler " Airline Plugin 사용하고 있으므로 comment out
 "set rulerformat=%55(%{strftime('%a\ %b\ %e\ %I:%M\ %p')}\ %5l,%-6(%c%V%)\ %p%)
 
@@ -106,54 +106,54 @@ if has ("win32") ""윈도우 gvim 과 위도우 CMD ( anaconda venv) 에서 vim 
         nmap gx :exec "!start <cWORD>"<cr> 
     endif
 
-	if has( "gui_running" ) "gvim에서만 적용되는 옵션모음.
-	
-		set gfn=D2Coding:h11 " 폰트 크기 설정
-		au GUIEnter * winsize 92 55
-		au GUIEnter * winpos 1260 0
-		set nocursorline " 커서가 있는 라인을 하이라이트. set cursorline
-		set guioptions-=m " Remove gvim menu bar 필요할 경우 +=m
-		set guioptions-=T " Remove toolbar. 보이게 할 경우 +=T
-		set nobackup
-		"set backupdir=$HOME/vimfiles/backup
+    if has( "gui_running" ) "gvim에서만 적용되는 옵션모음.
+    
+        set gfn=D2Coding:h11 " 폰트 크기 설정
+        au GUIEnter * winsize 92 55
+        au GUIEnter * winpos 1260 0
+        set nocursorline " 커서가 있는 라인을 하이라이트. set cursorline
+        set guioptions-=m " Remove gvim menu bar 필요할 경우 +=m
+        set guioptions-=T " Remove toolbar. 보이게 할 경우 +=T
+        set nobackup
+        "set backupdir=$HOME/vimfiles/backup
         "set directory=$HOME/vimfiles/backup
 
-	else " Only Windows CMD prompt feature here.
-	
-	endif "if has("gui_running" ) " 
+    else " Only Windows CMD prompt feature here.
+    
+    endif "if has("gui_running" ) " 
 
 endif "if has("win32")
 
 if has ("unix") "" Linux 설정.
 
-	set nobackup
-	set backupdir=$HOME/.vim/backup
-	set directory=$HOME/.vim/backup
-	nmap ,s :source ~/.vim/vimrc<CR>
-	nmap ,v :e ~/.vim/vimrc<CR>
-	nmap ,p :e ~/.vim/bashrc<CR>
-	nmap ,o :!source ~/.vim/bashrc<CR>
-	nmap ,cs :e ~/.vim/cscope/cscope.files<CR>
-	cmap datetime <C-R>=strftime("%Y%m%d-%H%M%S")<CR>
-	nmap ,ww :w $HOME/text/datetime.txt<cr> " 현재 시간의 파일명으로 자동저장
-	nmap ,w :w $HOME/text/datetime_.txt<left><left><left><left>
-	nmap ,t :e ~/text/<CR>
-	nmap ,l :e ~/.vim/mydoc/text/1clip<CR>
-	" YUKO for using taglist 061122
-	filetype on 
-	nnoremap <silent> <F8> :TlistToggle<CR>
-	nnoremap <silent> <F7> :SrcExplToggle<CR>
-	" 2018-10-02 10:19:54  coding font.
-	set guifont=D2Coding\ 13
-	
+    set nobackup
+    set backupdir=$HOME/.vim/backup
+    set directory=$HOME/.vim/backup
+    nmap ,s :source ~/.vim/vimrc<CR>
+    nmap ,v :e ~/.vim/vimrc<CR>
+    nmap ,p :e ~/.vim/bashrc<CR>
+    nmap ,o :!source ~/.vim/bashrc<CR>
+    nmap ,cs :e ~/.vim/cscope/cscope.files<CR>
+    cmap datetime <C-R>=strftime("%Y%m%d-%H%M%S")<CR>
+    nmap ,ww :w $HOME/text/datetime.txt<cr> " 현재 시간의 파일명으로 자동저장
+    nmap ,w :w $HOME/text/datetime_.txt<left><left><left><left>
+    nmap ,t :e ~/text/<CR>
+    nmap ,l :e ~/.vim/mydoc/text/1clip<CR>
+    " YUKO for using taglist 061122
+    filetype on 
+    nnoremap <silent> <F8> :TlistToggle<CR>
+    nnoremap <silent> <F7> :SrcExplToggle<CR>
+    " 2018-10-02 10:19:54  coding font.
+    set guifont=D2Coding\ 13
+    
     "   Open URL under cursor in webbrowser for other os.
     nmap gx :exec "!open <cWORD>"<cr> 
 
-	" vim plug 관련 start
-	call plug#begin('~/.vim/plugged')
-	Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-	call plug#end()
-	" vim plug 관련 end
+    " vim plug 관련 start
+    call plug#begin('~/.vim/plugged')
+    Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+    call plug#end()
+    " vim plug 관련 end
 
 endif
 
@@ -244,7 +244,7 @@ nmap \4 :set paste<CR>O#ifdef <C-R>=(DEFINE)<CR> /* <C-R>=strftime("%Y%m%d.YUKO"
 nmap \5 :set paste<CR>o#endif:set nopaste<CR>
 nmap \6 :set paste<CR>I/*A*/ /* 1 line comment <C-R>=strftime("%Y%m%d.YUKO")<CR> for <C-R>=(PRJ_NAME)<CR> <C-R>=(MOD_NAME)<CR> */:set nopaste<CR>j
 nmap -- :set paste<CR>o//===========================================================================================:set nopaste<CR>k
-nmap \9 :%s/nothing provides //g<CR>:%s/pkgconfig(//g<CR>:%s/)//g<CR>:g/^	/norm dwk^yiWopJk<CR>:set nopaste<CR>
+nmap \9 :%s/nothing provides //g<CR>:%s/pkgconfig(//g<CR>:%s/)//g<CR>:g/^    /norm dwk^yiWopJk<CR>:set nopaste<CR>
 
 "   2014-02-17 Current file name mapping. 현재 파일의 정보를 디렉토리 / string으로 만들기.
 "   :inoremap \fn <C-R>=expand("%:t:r")<CR>     "   when you are in insert mode.
@@ -278,21 +278,21 @@ autocmd FileType python nmap <buffer> <F5> :!python %<CR>  "
 "//-------------------------------------------------------------------
 "   Plugin 설정. install 명령어. :PlugIn
 "   아래 편집/저장후 TODO 반드시 source $HOME/vimfiles/vimrc 실행 후 명령어 입력. XXX
-"   Command	Description
-"   PlugInstall [name ...] [#threads]	Install plugins
-"   PlugUpdate [name ...] [#threads]	Install or update plugins
-"   PlugClean[!]	Remove unlisted plugins (bang version will clean without prompt)
-"   PlugUpgrade	Upgrade vim-plug itself
-"   PlugStatus	Check the status of plugins
-"   PlugDiff	Examine changes from the previous update and the pending changes
-"   PlugSnapshot[!] [output path]	Generate script for restoring the current snapshot of the plugins
+"   Command    Description
+"   PlugInstall [name ...] [#threads]    Install plugins
+"   PlugUpdate [name ...] [#threads]    Install or update plugins
+"   PlugClean[!]    Remove unlisted plugins (bang version will clean without prompt)
+"   PlugUpgrade    Upgrade vim-plug itself
+"   PlugStatus    Check the status of plugins
+"   PlugDiff    Examine changes from the previous update and the pending changes
+"   PlugSnapshot[!] [output path]    Generate script for restoring the current snapshot of the plugins
 "//-------------------------------------------------------------------
 
 call plug#begin()
-	Plug 'preservim/nerdtree'
-	Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
-	Plug 'vim-airline/vim-airline'
-	Plug 'vim-airline/vim-airline-theme'
+    Plug 'preservim/nerdtree'
+    Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-theme'
     Plug 'tpope/vim-fugitive' " For Git commit / push
 call plug#end()
 
@@ -322,17 +322,17 @@ let NERDTreeShowHidden=1
 "   \t  탭문자
 "//==================================================================
 "   vim keys              "<leader> 는 기본적으로 ‘\’를 가리키게 됩니다
-"   <BS>	Backspace   " <Tab>	Tab         " <CR>	Enter
-"   <Enter>	Enter       " <Return>	Enter   " <Esc>	Escape
-"   <Space>	Space       " <Up>	Up arrow    " <Down>	Down arrow
-"   <Left>	Left        " <Right>	Right   "   <Insert>	Insert      
-"   <Del>	Delete      " <Home>	Home
-"   <End>	End         " <PageUp>	Page-Up " <PageDown>	Page-Down
-"   <F1> - <F12>	Function keys 1 to 12 "   #1, #2..#9,#0	Function keys F1 to F9, F10
+"   <BS>    Backspace   " <Tab>    Tab         " <CR>    Enter
+"   <Enter>    Enter       " <Return>    Enter   " <Esc>    Escape
+"   <Space>    Space       " <Up>    Up arrow    " <Down>    Down arrow
+"   <Left>    Left        " <Right>    Right   "   <Insert>    Insert      
+"   <Del>    Delete      " <Home>    Home
+"   <End>    End         " <PageUp>    Page-Up " <PageDown>    Page-Down
+"   <F1> - <F12>    Function keys 1 to 12 "   #1, #2..#9,#0    Function keys F1 to F9, F10
 "//==================================================================
-"   nmap	normal mode         "   imap	insert mode         " vmap	visual and select mode 
-"   smap	select mode         "   xmap	visual mode
-"   cmap	command-line mode   "   omap	operator pending mode 
+"   nmap    normal mode         "   imap    insert mode         " vmap    visual and select mode 
+"   smap    select mode         "   xmap    visual mode
+"   cmap    command-line mode   "   omap    operator pending mode 
 
 "//==================================================================
 "   쓸만한 VIM 강좌 URL 모음.           "   아래 주소 위에 커서 놓고 gx 입력하면 웹보기.
@@ -354,7 +354,7 @@ let NERDTreeShowHidden=1
 
 
 "//-------------------------------------------------------------------
-"	Git 설치 및 사용법.
+"    Git 설치 및 사용법.
 "   - 설치 
 "   https://git-scm.com/download : Git 설치 파일.
 "   Proxy 환경 일 경우 :PlugInstall  명령시 실패 할 경우 CMD 에 아래 입력.
