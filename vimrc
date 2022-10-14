@@ -312,7 +312,7 @@ let NERDTreeShowHidden=1
 nnoremap <A-1> :G status<CR>
 nnoremap <A-2> :G log<CR>
 nnoremap <A-3> :G diff<CR>
-nnoremap <A-4> :G commit vimrc -m "commit by Fusitive plugin" 
+nnoremap <A-4> :G commit vimrc -m "CCCCCCCCCCCCCCC" 
 
 nnoremap <A-5> :G push<CR>
 
