@@ -56,7 +56,15 @@ set history=50		" keep 50 lines of command line history
 set showcmd		" 키보드 눌러서 사용하는 명령어 우측 하단에 보여줌.
 set incsearch		" do incremental searching
 set isk+=-		" 2019-10-31 16:13:15  include dash"-" when search word.
-set nopaste    " S-insert copy.
+
+" Clipboard feature settings : CTRL-C,CTRL-V . y, p
+set clipboard=unnamedplus " use system clipboard  
+noremap y "+Y
+noremap p "+gP
+noremap <C-c> "+Y
+noremap <C-v> "+gP
+noremap <C-a> ggVG"+Y
+
 
 set hlsearch " 찾았던 키워드 계속 보여줌. 반대는 noh
 highlight Search guifg=black guibg=Orange
