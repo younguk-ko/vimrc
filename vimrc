@@ -58,12 +58,13 @@ set incsearch       " do incremental searching
 set isk+=-          " 2019-10-31 16:13:15  include dash"-" when search word.
 
 " Clipboard feature settings : CTRL-C,CTRL-V . y, p
+set nopaste
 set clipboard=unnamedplus " use system clipboard  
-nnoremap y "+Y
-nnoremap p "+gP
-nnoremap <C-c> "+Y
-nnoremap <C-v> "+gP
-nnoremap <C-a> ggVG"+Y
+noremap y "+Y
+noremap p "+gp
+noremap <C-c> "+Y
+noremap <C-v> "+gp
+noremap <C-a> ggVG"+Y
 
 
 set hlsearch " 찾았던 키워드 계속 보여줌. 반대는 noh
@@ -337,6 +338,7 @@ let NERDTreeShowHidden=1
 "//==================================================================
 "   쓸만한 VIM 강좌 URL 모음.           "   아래 주소 위에 커서 놓고 gx 입력하면 웹보기.
 "   https://m.blog.naver.com/nfwscho/220394602746 : 밤앙개의 vim 강좌
+"   http://vimregex.com/  : vim 정규 표현식. search / Global command
 "   https://coldmater.tistory.com/category/vim
 
 
