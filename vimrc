@@ -360,6 +360,19 @@ nnoremap <A-6> :G pull<CR>
 
 
 "//-------------------------------------------------------------------
+"   DOSKEY : CMD/ conda prompt 에서 alias 사용하기.
+"   아래내용을 alias.cmd 로 저장. 저장위치 $HOME/vimfiles/alias.cmd 로 가정.
+"   @echo off
+"   doskey vi=C:\"Program Files"\Vim\vim90\gvim.exe
+"   doskey ls=dir
+"   doskey ll=dir /w
+"
+"   아나콘다 prompt 위치.
+"   $HOME\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Anaconda3 (64-bit)
+"   아나콘다 prompt 의 속성 -> 대상에 아래 추가. alias.cmd 
+"    "/k" $HOME\vimfiles\alias.cmd
+
+"//-------------------------------------------------------------------
 "    Git 설치 및 사용법.
 "   - 설치
 "   https://git-scm.com/download : Git 설치 파일.
@@ -441,3 +454,4 @@ nnoremap <A-6> :G pull<CR>
 "
 "   $ git branch -d master      
 "   Deleted branch master (was 0e6434d).
+"
