@@ -457,14 +457,9 @@ nnoremap <A-6> :G pull<CR>
 "
 "//-------------------------------------------------------------------
 "   Git bash 팁. git 설치시 git bash 가 같이 설치됨. linux bash 와 동일.
-"   $HOME 디렉토리 C:\users\username\  여기에 .bashrc 만들고 alias 사용. 
-"   전체 설정을 위해서는 /etc/bash.bashrc 를 변경. \program files\git\
-"   alias ,p='vi ~/.bashrc'
-"   alias sp='source ~/.bashrc'
+"   $HOME 디렉토리에 .bashrc 만들고 alias 사용가능.
+"   전체 설정을 위해서는 /etc/bash.bashrc 를 변경.
 "   alias vi='/c/Program\ Files/Vim/vim90/gvim.exe &'
 "   
-
-
-
-
+"   ln $HOME/vimfiles/bashrc $HOME/bashrc  " hard link 
 
