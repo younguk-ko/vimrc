@@ -314,11 +314,11 @@ let NERDTreeShowHidden=1
 "//==================================================================
 "   vim 정규 표현식 치환할때 참고용. :%s/old/new/g
 "   http://vimregex.com/  : vim 정규 표현식. search / Global command
-"   ^   행의 첫문자 ([] 안에서는 not 의 의미)        "   .      아무문자나 한문자
-"   []  괄호 안의 문자 중 하나                       "   *      앞의 내용이 0번 이상 반복됨
-"   \<  단어의 시작                                  "   \>     단어의 끝
-"   \n  새 행문자                                    "   $      행의 끝
-"   \|  or 의 의미                                   "   \{min,max\}    min 이상 max 이하 반복됨
+"   ^   행의 첫문자 ([] 안에서는 not 의 의미)   "   .      아무문자나 한문자
+"   []  괄호 안의 문자 중 하나                  "   *      앞의 내용이 0번 이상 반복됨
+"   \<  단어의 시작                             "   \>     단어의 끝
+"   \n  새 행문자                               "   $      행의 끝
+"   \|  or 의 의미                              "   \{min,max\}    min 이상 max 이하 반복됨
 "   \t  탭문자
 "//==================================================================
 "   vim keys              "<leader> 는 기본적으로 ‘\’를 가리키게 됩니다
@@ -374,10 +374,10 @@ let NERDTreeShowHidden=1
 "
 "   2. git remote add origin https://github.com/younguk-ko/vimrc.git
 "   아래와 같은 에러 발생하면 
-"   fatal: detected dubious ownership in repository at 'C:/Users/yourname/vimfiles'
-"   'C:/Users/yourname/vimfiles' is owned by: 'S-1-5-32-544'
-"   but the current user is: 'S-1-5-21-273798964-3913833500-3570972300-1005'
-"   To add an exception for this directory, call:
+"       fatal: detected dubious ownership in repository at 'C:/Users/yourname/vimfiles'
+"       'C:/Users/yourname/vimfiles' is owned by: 'S-1-5-32-544'
+"       but the current user is: 'S-1-5-21-273798964-3913833500-3570972300-1005'
+"       To add an exception for this directory, call:
 "
 "   3. safe 디렉토리 설정을 변경.
 "    git config --global --add safe.directory '*'
