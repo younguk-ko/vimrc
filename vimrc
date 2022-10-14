@@ -414,22 +414,18 @@ nnoremap <A-6> :G pull<CR>
 "        * [new branch]      main       -> origin/main
 "   6. 해당 디렉토리에 vimrc 와 README.md 파일이 생성되어 있으면 성공.
 "
-"   - 로컬의 파일을 git repository에 add 할 경우
-"           git add .    " 로컬폴더의 내용을 추가한다.
-"           git commit -m 'first commit'    " commit 을 한다.
-"           git push -u origin main      " github에 올린다.
 "
-"   기본 명령.
+"   - 기본 명령.
 "   git 설치 후 setup.
 "   git config --global user.email "younguk.ko@gmail.com"
 "   git config --global user.name "your name" : PC 마다 다르게 설정하면 될듯.
 "   git config --global --add safe.directory '*'  : 퍼미션 에러 날 경우.
 "   git config --global http.sslVerify false : proxy 환경.
 "   
-"   git fetch : 소스만 가져오기
+"   - git fetch : 소스만 가져오기
 "   git pull : fetch + merge  " 서버의 최신을 가져와서 현재 소스와 머지.
 "
-"   git push할때 아래와 같은 에러 일 경우
+"   - git push할때 아래와 같은 에러 일 경우
 "   오류의 원인은 처음 만들고 원격 저장소에 대한 기본 브랜치 설정을 안 해줬기 때문입니다. 
 "   이런 오류는 처음 브랜치 설정만 해주면 간단하게 해결이 가능합니다.
 "   fatal: The current branch master has no upstream branch.
@@ -438,22 +434,29 @@ nnoremap <A-6> :G pull<CR>
 "
 "   - 브렌치 머지
 "   main base 이고 master branch 에서 변경사항을 main에 병합.Merge.
-"
 "   git branch "  현재 선택된 브렌치 정보. *이 선택된 branch임.
-"
-"   $ git checkout main
+"   $ git checkout main  ==>  main 브렌치를 선택하고
 "   Switched to branch 'main'
 "   Your branch is up to date with 'origin/main'.
 "
-"   young@LAPTOP-LFCJGSGN MINGW64 ~/vimfiles (main)
-"   $ git merge master
+"   $ git merge master  ==> 머지 한다. 
 "   Updating 35753dc..0e6434d
 "   Fast-forward
 "    vimrc | 22 +++++++++++++++++++---
 "    1 file changed, 19 insertions(+), 3 deletions(-)
 "
-"   $ git branch -d master      
+"   $ git branch -d master  ==> master 브렌치 삭제한다.    
 "   Deleted branch master (was 0e6434d).
+"   
+"   - 로컬의 파일을 git repository에 add 할 경우
+"           git add .    " 로컬폴더의 내용을 추가한다.
+"           git commit -m 'first commit'    " commit 을 한다.
+"           git push -u origin main      " github에 올린다.
+"   - 파일 추가
+"           git add .
+"           git status
+"           git commit -m ""
+"           git push
 "
 "//-------------------------------------------------------------------
 "   Git bash 팁. git 설치시 git bash 가 같이 설치됨. linux bash 와 동일.
@@ -463,3 +466,10 @@ nnoremap <A-6> :G pull<CR>
 "   
 "   ln $HOME/vimfiles/bashrc $HOME/bashrc  " hard link 
 
+"//-------------------------------------------------------------------
+"   # 2022-10-15 .gitignore   4개 파일 제외하고 모두 ignore
+"   *
+"   !vimrc
+"   !README.md
+"   !bashrc
+"   !alias.cmd
