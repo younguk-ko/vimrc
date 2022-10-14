@@ -59,11 +59,11 @@ set isk+=-		" 2019-10-31 16:13:15  include dash"-" when search word.
 
 " Clipboard feature settings : CTRL-C,CTRL-V . y, p
 set clipboard=unnamedplus " use system clipboard  
-noremap y "+Y
-noremap p "+gP
-noremap <C-c> "+Y
-noremap <C-v> "+gP
-noremap <C-a> ggVG"+Y
+nnoremap y "+Y
+nnoremap p "+gP
+nnoremap <C-c> "+Y
+nnoremap <C-v> "+gP
+nnoremap <C-a> ggVG"+Y
 
 
 set hlsearch " 찾았던 키워드 계속 보여줌. 반대는 noh
@@ -115,8 +115,8 @@ if has ("win32") ""윈도우 gvim 과 위도우 CMD ( anaconda venv) 에서 vim 
 		set guioptions-=m " Remove gvim menu bar 필요할 경우 +=m
 		set guioptions-=T " Remove toolbar. 보이게 할 경우 +=T
 		set nobackup
-		set backupdir=$HOME/vimfiles/backup
-        set directory=$HOME/vimfiles/backup
+		"set backupdir=$HOME/vimfiles/backup
+        "set directory=$HOME/vimfiles/backup
 
 	else " Only Windows CMD prompt feature here.
 	
@@ -344,14 +344,60 @@ let NERDTreeShowHidden=1
 "    Vim 설치 / Plugin 설치 
 
 "//-------------------------------------------------------------------
-"   Vim-Plug 설치 :  Type below command on windows powershell.
-"   iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
-"       ni $HOME/vimfiles/autoload/plug.vim -Force
+"   Vim-Plug 설치  
+"   Homepage : https://github.com/junegunn/vim-plug 
+"   Type below command on windows powershell.
+"   iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim | ni $HOME/vimfiles/autoload/plug.vim -Force
 "   Vim-Plug 사용하기 위해서는 git 설치 필요.
-"   https://git-scm.com/download : Git 설치 파일.
 "   Proxy 환경 일 경우 :PlugInstall  명령시 실패 할 경우 CMD 에 아래 입력.
 "   git config --global http.sslVerify false
 
 
-
-
+"//-------------------------------------------------------------------
+"	Git 설치 및 사용법.
+"   - 설치 
+"   https://git-scm.com/download : Git 설치 파일.
+"   Proxy 환경 일 경우 :PlugInstall  명령시 실패 할 경우 CMD 에 아래 입력.
+"   git config --global http.sslVerify false
+"   git의 설정 파일은 $HOME/.gitconfig 임. "git config --global 명령어"를
+"   입력하면 자동으로 $HOME/.gitconfig에 저장됨.
+"
+"   - 사용법
+"   This vimrc git repository : https://github.com/younguk-ko/vimrc.git
+"   상기 git repository 에서 vimrc 파일을 $HOME/vimfiles/vimrc 에 pull ( 서버에서 로컬로 가져옴)
+"   하려고 하면 에러 발생. vimfiles 디렉토리가 이미 있고 다른 파일도 있어서 git clone이 실패함.
+"   다른 파일이 존재하는 디렉토리에 git repo의 파일 가져오거나 
+"   git repository 만 github 에서 만들어 놓고 로컬 파일을 add 할 때 아래
+"   방법 사용할 수 있다.
+"
+"   1. 디렉토리 이동($HOME/vimfiles/)하여 git bash 실행. -> git init
+"
+"   2. git remote add origin https://github.com/younguk-ko/vimrc.git
+"   아래와 같은 에러 발생하면 
+"   fatal: detected dubious ownership in repository at 'C:/Users/yourname/vimfiles'
+"   'C:/Users/yourname/vimfiles' is owned by: 'S-1-5-32-544'
+"   but the current user is: 'S-1-5-21-273798964-3913833500-3570972300-1005'
+"   To add an exception for this directory, call:
+"
+"   3. safe 디렉토리 설정을 변경.
+"    git config --global --add safe.directory '*'
+"
+"   4. git remote add origin https://github.com/younguk-ko/vimrc.git
+"
+"   5. git pull origin main
+"       remote: Enumerating objects: 55, done.
+"       remote: Counting objects: 100% (55/55), done.
+"       remote: Compressing objects: 100% (45/45), done.
+"       remote: Total 55 (delta 16), reused 25 (delta 8), pack-reused 0
+"       Unpacking objects: 100% (55/55), 18.13 KiB | 29.00 KiB/s, done.
+"       From https://github.com/younguk-ko/vimrc
+"        * branch            main       -> FETCH_HEAD
+"        * [new branch]      main       -> origin/main
+"   6. 해당 디렉토리에 vimrc 와 README.md 파일이 생성되어 있으면 성공.
+"
+"
+"   - 로컬의 파일을 git repository에 add 할 경우
+"           git add .    " 로컬폴더의 내용을 추가한다.
+"           git commit -m 'first commit'    " commit 을 한다.
+"           git push -u origin mastera      " github에 올린다.
+"
