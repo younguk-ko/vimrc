@@ -422,3 +422,4 @@ nnoremap <A-5> :G push<CR>
 "   To push the current branch and set the remote as upstream, use
 "    git push --set-upstream origin master
 "
+"   git branch "  현재 선택된 브렌치 정보. *이 선택된 branch임.
