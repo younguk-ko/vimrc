@@ -173,7 +173,7 @@ nmap ,s :source $HOME/vimfiles/vimrc<CR>
 nmap ,v :e $HOME/vimfiles/vimrc<CR>
 nmap ,r :e $VIM/<CR>
 nmap ,b :e $HOME/vimfiles/backup<CR>
-nmap ,p :e $HOME/PythonProject/<CR>
+nmap ,p :e $HOME/.bashrc<CR> " git bash 사용시 alias 사용가능.
 cmap datetime <C-R>=strftime("%Y%m%d-%H%M%S")<CR>
 nmap ,ww :w $HOME/Documents/text/datetime.txt<cr> " 현재 시간의 파일명으로 자동저장
 nmap ,w :w $HOME/Documents/text/datetime_.txt<left><left><left><left>
@@ -455,3 +455,16 @@ nnoremap <A-6> :G pull<CR>
 "   $ git branch -d master      
 "   Deleted branch master (was 0e6434d).
 "
+"//-------------------------------------------------------------------
+"   Git bash 팁. git 설치시 git bash 가 같이 설치됨. linux bash 와 동일.
+"   $HOME 디렉토리 C:\users\username\  여기에 .bashrc 만들고 alias 사용. 
+"   전체 설정을 위해서는 /etc/bash.bashrc 를 변경. \program files\git\
+"   alias ,p='vi ~/.bashrc'
+"   alias sp='source ~/.bashrc'
+"   alias vi='/c/Program\ Files/Vim/vim90/gvim.exe &'
+"   
+
+
+
+
+
