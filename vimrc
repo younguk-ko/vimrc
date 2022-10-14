@@ -409,17 +409,35 @@ nnoremap <A-5> :G push<CR>
 "   기본 명령.
 "   git 설치 후 setup.
 "   git config --global user.email "younguk.ko@gmail.com"
-"   git config --global user.name "your name"
+"   git config --global user.name "your name" : PC 마다 다르게 설정하면 될듯.
 "   git config --global --add safe.directory '*'  : 퍼미션 에러 날 경우.
 "   git config --global http.sslVerify false : proxy 환경.
 "   
-"   git fetch
-"   git pull
+"   git fetch : 소스만 가져오기
+"   git pull : fetch + merge  " 서버의 최신을 가져와서 현재 소스와 머지.
+"
 "   git push할때 아래와 같은 에러 일 경우
 "   오류의 원인은 처음 만들고 원격 저장소에 대한 기본 브랜치 설정을 안 해줬기 때문입니다. 
 "   이런 오류는 처음 브랜치 설정만 해주면 간단하게 해결이 가능합니다.
 "   fatal: The current branch master has no upstream branch.
 "   To push the current branch and set the remote as upstream, use
-"    git push --set-upstream origin master
+"   git push --set-upstream origin master
+"
+"   - 브렌치 머지
+"   main base 이고 master branch 에서 변경사항을 main에 병합.Merge.
 "
 "   git branch "  현재 선택된 브렌치 정보. *이 선택된 branch임.
+"
+"   $ git checkout main
+"   Switched to branch 'main'
+"   Your branch is up to date with 'origin/main'.
+"
+"   young@LAPTOP-LFCJGSGN MINGW64 ~/vimfiles (main)
+"   $ git merge master
+"   Updating 35753dc..0e6434d
+"   Fast-forward
+"    vimrc | 22 +++++++++++++++++++---
+"    1 file changed, 19 insertions(+), 3 deletions(-)
+"
+"   $ git branch -d master      
+"   Deleted branch master (was 0e6434d).
