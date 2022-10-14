@@ -361,7 +361,7 @@ nnoremap <A-5> :GPush<CR>
 
 "//-------------------------------------------------------------------
 "    Git 설치 및 사용법.
-"   - 설 
+"   - 설치
 "   https://git-scm.com/download : Git 설치 파일.
 "   Proxy 환경 일 경우 :PlugInstall  명령시 실패 할 경우 CMD 에 아래 입력.
 "   git config --global http.sslVerify false
@@ -401,9 +401,19 @@ nnoremap <A-5> :GPush<CR>
 "        * [new branch]      main       -> origin/main
 "   6. 해당 디렉토리에 vimrc 와 README.md 파일이 생성되어 있으면 성공.
 "
-"
 "   - 로컬의 파일을 git repository에 add 할 경우
 "           git add .    " 로컬폴더의 내용을 추가한다.
 "           git commit -m 'first commit'    " commit 을 한다.
 "           git push -u origin mastera      " github에 올린다.
+"
+"   기본 명령.
+"   git 설치 후 setup.
+"   git config --global user.email "younguk.ko@gmail.com"
+"   git config --global user.name "your name"
+"   git config --global --add safe.directory '*'  : 퍼미션 에러 날 경우.
+"   git config --global http.sslVerify false : proxy 환경.
+"   
+"   git fetch
+"   git pull
+"   
 "
