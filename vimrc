@@ -312,8 +312,8 @@ let NERDTreeShowHidden=1
 nnoremap <A-1> :G status<CR>
 nnoremap <A-2> :G log<CR>
 nnoremap <A-3> :G diff<CR>
-nnoremap <A-4> :G commit -m "test commit by Fusitive plugin" vimrc <CR>
-nnoremap <A-5> :G commit origin main -m "test commit by Fusitive plugin"<CR>
+nnoremap <A-4> :G commit vimrc -m "commit by Fusitive plugin" 
+nnoremap <A-5> :G push<CR>
 
 
 "//==================================================================
@@ -363,7 +363,7 @@ nnoremap <A-5> :G commit origin main -m "test commit by Fusitive plugin"<CR>
 
 "//-------------------------------------------------------------------
 "    Git 설치 및 사용법.
-"   - 설치 
+"   - 설 
 "   https://git-scm.com/download : Git 설치 파일.
 "   Proxy 환경 일 경우 :PlugInstall  명령시 실패 할 경우 CMD 에 아래 입력.
 "   git config --global http.sslVerify false
