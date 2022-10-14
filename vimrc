@@ -58,10 +58,10 @@ set incsearch       " do incremental searching
 set isk+=-          " 2019-10-31 16:13:15  include dash"-" when search word.
 
 " Clipboard feature settings : CTRL-C,CTRL-V . y, p
-set nopaste
+set nopaste     "   paste to upper cursor line. <S-INSERT>
 set clipboard=unnamedplus " use system clipboard  
 noremap y "+Y
-noremap p "+gp
+noremap p "+gp  "   paste to upper line. "+gP ==> paste under cursor.
 noremap <C-c> "+Y
 noremap <C-v> "+gp
 noremap <C-a> ggVG"+Y
