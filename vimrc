@@ -308,6 +308,11 @@ let NERDTreeShowHidden=1
 "   For Fusitive.vim : Git plugin. :      " https://github.com/tpope/vim-fugitive
 "   :Git (or just :G)     " :G commit     " :G push(GPush)    " :G status     " :G diff   " :G blame
 "   :G commit -m "update" " :G log
+"   :G status
+nnoremap <A-1> :G status<CR>
+nnoremap <A-2> :G log<CR>
+nnoremap <A-3> :G commit -m "test commit by Fusitive plugin" vimrc <CR>
+nnoremap <A-4> :G commit origin main -m "test commit by Fusitive plugin"<CR>
 
 
 "//==================================================================
