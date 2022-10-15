@@ -1,21 +1,21 @@
-"//==================================================================
+"==================================================================
 "   History 
 "   2022-10-07 00:12:41 vimrc 설정 정리
 "   20221012 : git repo : https://github.com/younguk-ko/vimrc.git
-"//==================================================================
+"==================================================================
 
-"//==================================================================
+"==================================================================
 "  vim 설정. set , 검색 , 모양, indent
 "  :set 명령어로  현재 setting을 볼수 있다.
-"//==================================================================
+"==================================================================
 if has("syntax") " 구문 강조 사용.
     syntax on
 endif
 
 " 파일 타입(확장자 *.py , *.txt))에 따라 다르게 indent 또는 plugin을 적용하는 옵션.
 filetype plugin indent on
-"au BufNewFile,BufRead *.ino,*.txt set filetype=c " ino , txt 파일도 C 파일과 같은 취급.
-au BufNewFile,BufRead *.ino,*.txt set filetype=sh " ino , txt 파일도 C 파일과 같은 취급.
+"au BufNewFile,BufRead *.ino,*.txt set filetype=c " ino , txt 파일도 C 파일과 같이 강조.
+au BufNewFile,BufRead *.ino,*.txt set filetype=sh 
 
 "   파이썬 관련 세팅 모음 시작.
 "   Python 파일(*.py) 일 경우에 자동으로 expandtab 옵션이 설정됨.
@@ -23,15 +23,17 @@ au BufNewFile,BufRead *.ino,*.txt set filetype=sh " ino , txt 파일도 C 파일
 "   개인적으로 space가 아닌 tab을 사용하려면 아래와 같이 추가 해주어야 한다.
 "   autocmd FileType python setlocal noexpandtab shiftwidth=4 softtabstop=4
 "   python-mode plugin 사용하는 경우 위와 같이 설정하여도 다시 space로 변경됨.
-"   결론 : python 의 경우 space 사용하는 것이 표준인듯.
+"   결론 : python 의 경우 space 사용하는 것이 표준.
 "   짧은 명령어  au Filetype python setl et ts=4 sw=4
 "   autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4
+au BufNewFile,BufRead *.py set ts=4 sts=4 sw=4 tw=79 et ai
 "   파이썬 관련 세팅 모음 끝
 
+" default indent 는 tab 사용.
 "set autoindent
 set smartindent " autoindent smart 하게 한다.
-set expandtab " 짧게 하려면 set et
-"set noexpandtab " 짧게 하려면 set noet
+"set expandtab " 짧게 하려면 set et
+set noexpandtab " 짧게 하려면 set noet
 set tabstop=4  " 짧은 command  : set ts=4
 set shiftwidth=4
 set softtabstop=4
@@ -95,10 +97,10 @@ set completeopt=menuone,preview "insert 모드에서 자동완성 추가 옵션"
 "set list listchars=tab:▸\ ,trail:·,precedes:←,extends:→
 "
 
-"//==================================================================
+"==================================================================
 "   vim 설정 중 OS 별 구분 필요할 경우 아래 if 문 안에 추가
 "   win32 : 윈도우 , gui_running : gvim,  unix : linux
-"//==================================================================
+"==================================================================
 if has ("win32") ""윈도우 gvim 과 위도우 CMD ( anaconda venv) 에서 vim 사용하는 경우.
 
     "   Open URL under cursor in webbrowser.
@@ -158,9 +160,9 @@ if has ("unix") "" Linux 설정.
 endif
 
 
-"//==================================================================
+"==================================================================
 "   맵. nmap, map, imap,cmap, nore(no recursive) ,... 
-"//==================================================================
+"==================================================================
 
 "   탭 추가/이동 관련 맵핑
 nmap tn :tabnew<CR>
@@ -257,9 +259,9 @@ map \fn o<C-R>=expand("%:p:h")<CR>/<C-R>=expand("%:t")<CR>
 map \fp o<C-R>=expand("#:p:h")<CR>/<C-R>=expand("#:t")<CR>
 
 
-"//==================================================================
+"==================================================================
 "   개발환경 관련 설정.
-"//==================================================================
+"==================================================================
 "   window 10  Anaconda 에서 python compile 할때 <F5> 키로 실행.
 "   For Python anaconda virtual environment compile
 autocmd FileType python nmap <buffer> <F5> :!python %<CR>  " 
@@ -272,10 +274,10 @@ autocmd FileType python nmap <buffer> <F5> :!python %<CR>  "
 "   set PYTHONHOME=$HOME\miniconda3\envs\yuko
 "   set pythonthreedll="$HOME\miniconda3\envs\yuko\python38.dll"
 
-"//==================================================================
+"==================================================================
 "   Plung in 관리자 : Vim-Plug 사용.
 "   Plung in 사용에 필요한 set / map /  설정 / 사용법 등도 아래에 정리.
-"//-------------------------------------------------------------------
+"-------------------------------------------------------------------
 "   Plugin 설정. install 명령어. :PlugIn
 "   아래 편집/저장후 TODO 반드시 source $HOME/vimfiles/vimrc 실행 후 명령어 입력. XXX
 "   Command    Description
@@ -286,7 +288,7 @@ autocmd FileType python nmap <buffer> <F5> :!python %<CR>  "
 "   PlugStatus      Check the status of plugins
 "   PlugDiff        Examine changes from the previous update and the pending changes
 "   PlugSnapshot[!] [output path]    Generate script for restoring the current snapshot of the plugins
-"//-------------------------------------------------------------------
+"-------------------------------------------------------------------
 
 call plug#begin()
     Plug 'preservim/nerdtree'
@@ -314,9 +316,9 @@ nnoremap <A-4> :G commit vimrc -m "update"<left>
 nnoremap <A-5> :G push<CR>
 nnoremap <A-6> :G pull<CR>
 
-"//==================================================================
+"==================================================================
 "   참고할 사항 정리 - Tip , 특수문자 , 강좌 등등 
-"//==================================================================
+"==================================================================
 "   vim 정규 표현식 치환할때 참고용. :%s/old/new/g
 "   http://vimregex.com/  : vim 정규 표현식. search / Global command
 "   ^   행의 첫문자 ([] 안에서는 not 의 의미)   "   .      아무문자나 한문자
@@ -325,7 +327,7 @@ nnoremap <A-6> :G pull<CR>
 "   \n  새 행문자                               "   $      행의 끝
 "   \|  or 의 의미                              "   \{min,max\}    min 이상 max 이하 반복됨
 "   \t  탭문자
-"//==================================================================
+"==================================================================
 "   vim keys              "<leader> 는 기본적으로 ‘\’를 가리키게 됩니다
 "   <BS>    Backspace       " <Tab>    Tab      " <CR>    Enter
 "   <Enter>    Enter        " <Return> Enter    " <Esc>    Escape
@@ -334,22 +336,23 @@ nnoremap <A-6> :G pull<CR>
 "   <Del>    Delete         " <Home>   Home
 "   <End>    End            " <PageUp> Page-Up  " <PageDown>    Page-Down
 "   <F1> - <F12>    Function keys 1 to 12 "   #1, #2..#9,#0    Function keys F1 to F9, F10
-"//==================================================================
+"==================================================================
 "   nmap    normal mode         "   imap    insert mode         " vmap    visual and select mode 
 "   smap    select mode         "   xmap    visual mode
 "   cmap    command-line mode   "   omap    operator pending mode 
 
-"//==================================================================
-"   쓸만한 VIM 강좌 URL 모음.           "   아래 주소 위에 커서 놓고 gx 입력하면 웹보기.
+"==================================================================
+"   쓸만한 VIM 강좌 URL 모음.       "   아래 주소 위에 커서 놓고 gx 입력하면 웹보기.
 "   https://m.blog.naver.com/nfwscho/220394602746 : 밤앙개의 vim 강좌
 "   http://vimregex.com/  : vim 정규 표현식. search / Global command
 "   https://coldmater.tistory.com/category/vim
+"   https://realpython.com/vim-and-python-a-match-made-in-heaven/  : Useful.
 
 
-"//------------------------------------------------------------------
+"------------------------------------------------------------------
 "    Vim 설치 / Plugin 설치 
 
-"//-------------------------------------------------------------------
+"-------------------------------------------------------------------
 "   Vim-Plug 설치  
 "   Homepage : https://github.com/junegunn/vim-plug 
 "   Type below command on windows powershell.
@@ -359,7 +362,7 @@ nnoremap <A-6> :G pull<CR>
 "   git config --global http.sslVerify false
 
 
-"//-------------------------------------------------------------------
+"-------------------------------------------------------------------
 "   DOSKEY : CMD/ conda prompt 에서 alias 사용하기.
 "   아래내용을 alias.cmd 로 저장. 저장위치 $HOME/vimfiles/alias.cmd 로 가정.
 "   @echo off
@@ -372,7 +375,7 @@ nnoremap <A-6> :G pull<CR>
 "   아나콘다 prompt 의 속성 -> 대상에 아래 추가. alias.cmd 
 "    "/k" $HOME\vimfiles\alias.cmd
 
-"//-------------------------------------------------------------------
+"-------------------------------------------------------------------
 "    Git 설치 및 사용법.
 "   - 설치
 "   https://git-scm.com/download : Git 설치 파일.
@@ -413,7 +416,6 @@ nnoremap <A-6> :G pull<CR>
 "        * branch            main       -> FETCH_HEAD
 "        * [new branch]      main       -> origin/main
 "   6. 해당 디렉토리에 vimrc 와 README.md 파일이 생성되어 있으면 성공.
-"
 "
 "   - 기본 명령.
 "   git 설치 후 setup.
@@ -458,7 +460,7 @@ nnoremap <A-6> :G pull<CR>
 "           git commit -m ""
 "           git push
 "
-"//-------------------------------------------------------------------
+"-------------------------------------------------------------------
 "   Git bash 팁. git 설치시 git bash 가 같이 설치됨. linux bash 와 동일.
 "   $HOME 디렉토리에 .bashrc 만들고 alias 사용가능.
 "   전체 설정을 위해서는 /etc/bash.bashrc 를 변경.
@@ -466,10 +468,11 @@ nnoremap <A-6> :G pull<CR>
 "   
 "   ln $HOME/vimfiles/bashrc $HOME/bashrc  " hard link 
 
-"//-------------------------------------------------------------------
+"-------------------------------------------------------------------
 "   # 2022-10-15 .gitignore   4개 파일 제외하고 모두 ignore
 "   *
 "   !vimrc
 "   !README.md
 "   !bashrc
 "   !alias.cmd
+"
