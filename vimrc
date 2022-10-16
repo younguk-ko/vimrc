@@ -296,6 +296,9 @@ call plug#begin()
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-theme'
     Plug 'tpope/vim-fugitive' " For Git commit / push
+	"Plug 'jmcantrell/vim-virtualenv' " 동작안함. 2022-10-16 22:51:44  
+    "Plug 'sansyrox/vim-python-virtualenv' " 동작안함. 2022-10-16 22:51:44  
+	"Plug 'cjrh/vim-conda' " 동작안함. 2022-10-16 22:51:44  
 call plug#end()
 
 "   For NERD_tree Plungin 맵과 설정
@@ -315,6 +318,15 @@ nnoremap <A-3> :G diff<CR>
 nnoremap <A-4> :G commit vimrc -m "update"<left>
 nnoremap <A-5> :G push<CR>
 nnoremap <A-6> :G pull<CR>
+
+"   아래 동작안함. linux나 vim 에서만 동작하는듯.
+"	
+"	Virtual env in vim Plug 'sansyrox/vim-python-virtualenv'
+"	https://github.com/sansyrox/vim-python-virtualenv
+"	let g:python3_host_prog='C:\Users\young\miniconda3\yuko\Scripts\python.exe'
+"	nnoremap act :!C:\Users\young\miniconda3\yuko\Scripts\activate.bat<CR>
+
+
 
 "==================================================================
 "   참고할 사항 정리 - Tip , 특수문자 , 강좌 등등 
