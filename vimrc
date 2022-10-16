@@ -26,7 +26,7 @@ au BufNewFile,BufRead *.ino,*.txt set filetype=sh
 "   결론 : python 의 경우 space 사용하는 것이 표준.
 "   짧은 명령어  au Filetype python setl et ts=4 sw=4
 "   autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4
-au BufNewFile,BufRead *.py set ts=4 sts=4 sw=4 tw=79 et ai
+au BufNewFile,BufRead *.py setlocal ts=4 sts=4 sw=4 tw=79 et ai
 "   파이썬 관련 세팅 모음 끝
 
 " default indent 는 tab 사용.
