@@ -471,7 +471,9 @@ nnoremap <A-6> :G pull<CR>
 "           git status
 "           git commit -m ""
 "           git push
-"
+
+"   https://gmlwjd9405.github.io/2018/05/25/git-add-cancle.html : git 각종 취소 명령설명.
+"   https://healthcoding.tistory.com/m/19  git 명령어 정리.
 "-------------------------------------------------------------------
 "   Git bash 팁. git 설치시 git bash 가 같이 설치됨. linux bash 와 동일.
 "   $HOME 디렉토리에 .bashrc 만들고 alias 사용가능.
