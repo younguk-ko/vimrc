@@ -387,9 +387,11 @@ nnoremap <A-6> :G pull<CR>
 "    아나콘다(미니콘다) prompt 속성 -> 대상
 "    %windir%\System32\cmd.exe "/K" C:\ProgramData\Anaconda3\Scripts\activate.bat C:\ProgramData\Anaconda3
 "	C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Anaconda3 (64-bit)
+"
+"	%windir%\System32\WindowsPowerShell\v1.0\powershell.exe -ExecutionPolicy ByPass -NoExit -Command "& 'C:\Users\young\miniconda3\shell\condabin\conda-hook.ps1' ; conda activate 'C:\Users\young\miniconda3' "
 
 "-------------------------------------------------------------------
-"	터미널 - vim 안에서 terminal 을 하나의 split window로 사용할 수 있다.
+"	vim terminal 터미널 - vim 안에서 terminal 을 하나의 split window로 사용할 수 있다.
 "	윈도우의 경우 : cmd.exe prompt 를 vim 안에서 사용.
 "	:terminal	" :ter		"	:below ter ( 아래에 terminal 윈도우 생성)
 "	:vert ter	"세로 열기
@@ -527,4 +529,3 @@ nnoremap <A-6> :G pull<CR>
 "   !bashrc
 "   !alias.cmd
 "
-"   teest
