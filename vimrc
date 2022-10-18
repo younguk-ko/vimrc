@@ -501,3 +501,15 @@ nnoremap <A-6> :G pull<CR>
 "   !bashrc
 "   !alias.cmd
 "
+"-------------------------------------------------------------------
+"	터미널 - vim 안에서 terminal 을 하나의 split window로 사용할 수 있다.
+"	윈도우의 경우 : cmd.exe prompt 를 vim 안에서 사용.
+"	:terminal	" :ter		"	:below ter ( 아래에 terminal 윈도우 생성)
+"	:vert ter	"세로 열기
+"	<C-w> 로 윈도우 이동.
+"
+"	terminal-mode -  터미널 사용중 터미널의 text 등을 copy 하려고 할때
+"	terminal-mode 로 진입하면 편집가능.
+"	<CTRL-W> N "or <CTRL-\><CTRL-N> " terminal-mode 진입.
+"	terminal-mode 종료하기 : i 또는 a 
+	tnoremap <ESC> <C-\><C-n>	" esc에 terminal-mode 진입 매핑.
