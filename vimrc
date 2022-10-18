@@ -472,6 +472,19 @@ nnoremap <A-6> :G pull<CR>
 
 "   https://gmlwjd9405.github.io/2018/05/25/git-add-cancle.html : git 각종 취소 명령설명.
 "   https://healthcoding.tistory.com/m/19  git 명령어 정리.
+"   
+"   로컬에 있는 모든 내용을 원격저장소의 내용으로 덮어쓰려는 경우 사용
+"   git pull 덮어쓰기
+"   $ git fetch --all
+"   $ git reset --hard origin/master
+"   master가 아닌 다른 branch로 덮어쓰기
+"   $ git fetch --all
+"   $ git reset --hard origin/<branch>
+"   현재 로컬 커밋을 다른 branch에 저장한 후, git pull로 덮어쓰기
+"   $ git checkout master
+"   $ git branch <branch>
+"   $ git fetch --all
+"   $ git reset --hard origin/master
 "-------------------------------------------------------------------
 "   Git bash 팁. git 설치시 git bash 가 같이 설치됨. linux bash 와 동일.
 "   $HOME 디렉토리에 .bashrc 만들고 alias 사용가능.
