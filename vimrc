@@ -527,3 +527,4 @@ nnoremap <A-6> :G pull<CR>
 "   !bashrc
 "   !alias.cmd
 "
+"
