@@ -319,14 +319,12 @@ nnoremap <A-4> :G commit vimrc -m "update"<left>
 nnoremap <A-5> :G push<CR>
 nnoremap <A-6> :G pull<CR>
 
-"   아래 동작안함. linux나 vim 에서만 동작하는듯.
-"	
+"   Python virtual env 관련한  plugin 테스트. 아래 동작안함.
+"   windows 10 + gvim : 환경에서는 동작 안함.
 "	Virtual env in vim Plug 'sansyrox/vim-python-virtualenv'
 "	https://github.com/sansyrox/vim-python-virtualenv
 "	let g:python3_host_prog='C:\Users\young\miniconda3\yuko\Scripts\python.exe'
 "	nnoremap act :!C:\Users\young\miniconda3\yuko\Scripts\activate.bat<CR>
-
-
 
 "==================================================================
 "   참고할 사항 정리 - Tip , 특수문자 , 강좌 등등 
