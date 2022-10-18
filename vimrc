@@ -384,6 +384,32 @@ nnoremap <A-6> :G pull<CR>
 "   $HOME\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Anaconda3 (64-bit)
 "   아나콘다 prompt 의 속성 -> 대상에 아래 추가. alias.cmd 
 "    "/k" $HOME\vimfiles\alias.cmd
+"    아나콘다(미니콘다) prompt 속성 -> 대상
+"    %windir%\System32\cmd.exe "/K" C:\ProgramData\Anaconda3\Scripts\activate.bat C:\ProgramData\Anaconda3
+"	C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Anaconda3 (64-bit)
+
+"-------------------------------------------------------------------
+"	터미널 - vim 안에서 terminal 을 하나의 split window로 사용할 수 있다.
+"	윈도우의 경우 : cmd.exe prompt 를 vim 안에서 사용.
+"	:terminal	" :ter		"	:below ter ( 아래에 terminal 윈도우 생성)
+"	:vert ter	"세로 열기
+"	<C-w> 로 윈도우 이동.
+"
+"	terminal-mode -  터미널 사용중 터미널의 text 등을 copy 하려고 할때
+"	terminal-mode 로 진입하면 편집가능.
+"	<CTRL-W> N "or <CTRL-\><CTRL-N> " terminal-mode 진입.
+"	terminal-mode 종료하기 : i 또는 a 
+	tnoremap <ESC> <C-\><C-n>	" esc에 terminal-mode 진입 매핑.
+
+"	윈도우에서 터미널(shell)을 cmd.exe가 아닌 powershell 로 변경하기.
+"	:set shell=powershell
+"	관련 옵션.
+"	set shell=powershell
+"	set shellcmdflag=-command
+"	set shellquote=\"
+"	set shellxquote=
+"   :set shell=powershell shellcmdflag=-c shellquote=\" shellxquote=. 
+	set shell=powershell shellcmdflag=-c shellquote=\" shellxquote=. 
 
 "-------------------------------------------------------------------
 "    Git 설치 및 사용법.
@@ -501,15 +527,6 @@ nnoremap <A-6> :G pull<CR>
 "   !bashrc
 "   !alias.cmd
 "
-"-------------------------------------------------------------------
-"	터미널 - vim 안에서 terminal 을 하나의 split window로 사용할 수 있다.
-"	윈도우의 경우 : cmd.exe prompt 를 vim 안에서 사용.
-"	:terminal	" :ter		"	:below ter ( 아래에 terminal 윈도우 생성)
-"	:vert ter	"세로 열기
-"	<C-w> 로 윈도우 이동.
 "
-"	terminal-mode -  터미널 사용중 터미널의 text 등을 copy 하려고 할때
-"	terminal-mode 로 진입하면 편집가능.
-"	<CTRL-W> N "or <CTRL-\><CTRL-N> " terminal-mode 진입.
-"	terminal-mode 종료하기 : i 또는 a 
-	tnoremap <ESC> <C-\><C-n>	" esc에 terminal-mode 진입 매핑.
+"
+"
