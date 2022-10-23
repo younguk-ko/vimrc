@@ -264,7 +264,7 @@ map \fp o<C-R>=expand("#:p:h")<CR>/<C-R>=expand("#:t")<CR>
 "==================================================================
 "   window 10  Anaconda 에서 python compile 할때 <F5> 키로 실행.
 "   For Python anaconda virtual environment compile
-autocmd FileType python nmap <buffer> <F5> :!python %<CR>  " 
+autocmd FileType python nmap <buffer> <F5> :!python %<CR>
 "   autocmd FileType python map <buffer> <F5> :w<CR> :!python %<CR>  
 "   autocmd FileType python map <buffer> <F5> :w<CR>:exec '!python' shellescape(@%, 1)<CR>
 "   autocmd FileType python imap <buffer> <F5> <esc>:w<CR>:exec '!python' shellescape(@%, 1)<CR>
@@ -411,7 +411,7 @@ nnoremap <A-6> :G pull<CR>
 "	set shellquote=\"
 "	set shellxquote=
 "   :set shell=powershell shellcmdflag=-c shellquote=\" shellxquote=. 
-	set shell=powershell shellcmdflag=-c shellquote=\" shellxquote=. 
+	"set shell=powershell shellcmdflag=-c shellquote=\" shellxquote=. 
 
 "-------------------------------------------------------------------
 "    Git 설치 및 사용법.
