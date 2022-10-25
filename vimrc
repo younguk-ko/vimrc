@@ -182,7 +182,7 @@ nmap ,w :w $HOME/Documents/text/datetime_.txt<left><left><left><left>
 nmap ,t :e $HOME/Documents/text/<CR>
 nmap ,h :e $HOME/<CR>
 
-nmap z <c-w><c-w> " 창 이동을 .으로 
+nmap z <c-w><c-w>
 
 " ",숫자"로 치환기능 매핑. 
 nmap ,5 :%s/<project name="//g<CR>:%s/" path.*revision="/\/...@/g<CR>:%s/\"*\/>//g<CR>:%s/ //g<CR>
@@ -389,6 +389,7 @@ nnoremap <A-6> :G pull<CR>
 "	C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Anaconda3 (64-bit)
 "
 "	%windir%\System32\WindowsPowerShell\v1.0\powershell.exe -ExecutionPolicy ByPass -NoExit -Command "& 'C:\Users\young\miniconda3\shell\condabin\conda-hook.ps1' ; conda activate 'C:\Users\young\miniconda3' "
+"	set shell=%windir%\System32\WindowsPowerShell\v1.0\powershell.exe
 
 "-------------------------------------------------------------------
 "	vim terminal 터미널 - vim 안에서 terminal 을 하나의 split window로 사용할 수 있다.
